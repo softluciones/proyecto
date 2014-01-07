@@ -125,8 +125,8 @@
 <div class="related">
 	<h3><?php echo __('Pagos con Cheque'); 
         
-        debug($relacionados); ?></h3>
-	<?php if(!empty($relacionados)): ?>
+         ?></h3>
+<?php if(!empty($relacionados)): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		

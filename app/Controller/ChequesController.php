@@ -22,7 +22,8 @@ class ChequesController extends AppController {
  */
 	public function index() {
 		$this->Cheque->recursive = 2;
-                $sumas=  $this->Cheque->query("SELECT cobrado, SUM( monto ) as sumato 
+                $sumas=  $this->Cheque->query("SELECT cobrado, 
+                                            SUM( monto ) as sumato 
                                             FROM cheques
                                             WHERE cobrado =1
                                             OR cobrado =0
@@ -32,17 +33,25 @@ class ChequesController extends AppController {
                 if($this->data){  
                     if ($this->data['Cheque']['search_text']) { 
                         $this->set('cheques',  
-                        $this->paginate('Cheque', array('or' => array('Cheque.numerodecheque LIKE' => '%' .  
+                        $this->paginate('Cheque', array('or' => 
+                            array('Cheque.numerodecheque LIKE' => '%' .  
                         $this->data['Cheque']['search_text'] . '%')))); 
                     } 
                     else { 
-                        $this->set('cheques', $this->Paginator->paginate());
+                        $this->set('cheques', $this->paginate('Cheque',
+                                array('or'=>array(array('Cheque.cobrado'=>'1'),
+                                    array('Cheque.cobrado'=>'0')))));
                     } 
                   }else{
                       
-                     $this->set('cheques', $this->Paginator->paginate()); 
+                    $this->set('cheques', $this->paginate('Cheque',
+                                array('or'=>array(array('Cheque.cobrado'=>'1'),
+                                    array('Cheque.cobrado'=>'0')))));
                   }
-		$this->set('cheques', $this->Paginator->paginate());
+	 	$this->set('cheques', $this->paginate('Cheque',
+                                array('or'=>array(array('Cheque.cobrado'=>'1'),
+                                    array('Cheque.cobrado'=>'0')))));
+                
                 $this->set(compact('sumas'));
 	}
         public function index2() {

@@ -283,9 +283,11 @@ echo $this->Form->label('Búsqueda') ?>
 			?>
                                     
                                     <?php #echo $this->Html->link(__('Ver'), array('action' => 'view', $cheque['Cheque']['id'])); ?>
-			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $cheque['Cheque']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Borrar'), array('action' => 'delete', $cheque['Cheque']['id']), null, __('Está seguro de que desea eliminar el cheque numero # %s?', $cheque['Cheque']['numerodecheque'])); ?>
-		</td>
+			<?php  echo $this->Html->image("editar.fw.png", array("alt" => "Ver",'width' => '18', 'heigth' => '18','title'=>'Editar','url' => array('action' => 'edit', $cheque['Cheque']['id']))); ?>
+			<?php 
+                         $imagen= $this->Html->image("borrargrande.fw.png", array("alt" => "borrar",'width' => '18', 'heigth' =>'18','title'=>'Borrar'));
+                                                 echo $this->Html->link($imagen, array('action' => 'delete', $cheque['Cheque']['id']), array('escape'=>false), sprintf(__('Seguro que quiere eliminar el registro?', $cheque['Cheque']['id'])));
+                        ?></td>
 	</tr>
         <?php }else{ 
             if($cheque['Cheque']['cobrado']==1&&$dias>floatval($cheque['Cheque']['dias'])){
@@ -362,9 +364,11 @@ echo $this->Form->label('Búsqueda') ?>
                                                 echo $this->Html->image("ver.fw.png", array("alt" => "Ver",'width' => '18', 'heigth' => '18','title'=>'Ver','url' => array('action' => 'view', $cheque['Cheque']['id'])));
 			?>
                             <?php #echo $this->Html->link(__('Ver'), array('action' => 'view', $cheque['Cheque']['id'])); ?>
-			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $cheque['Cheque']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Borrar'), array('action' => 'delete', $cheque['Cheque']['id']), null, __('Está seguro de que desea eliminar el cheque numero # %s?', $cheque['Cheque']['numerodecheque'])); ?>
-		</td>
+			<?php  echo $this->Html->image("editar.fw.png", array("alt" => "Ver",'width' => '18', 'heigth' => '18','title'=>'Editar','url' => array('action' => 'edit', $cheque['Cheque']['id']))); ?>
+			<?php 
+                         $imagen= $this->Html->image("borrargrande.fw.png", array("alt" => "borrar",'width' => '18', 'heigth' =>'18','title'=>'Borrar'));
+                                                 echo $this->Html->link($imagen, array('action' => 'delete', $cheque['Cheque']['id']), array('escape'=>false), sprintf(__('Seguro que quiere eliminar el registro?', $cheque['Cheque']['id'])));
+                        ?></td>
 	</tr>
         <?php }else{ 
             if($cheque['Cheque']['cobrado']==1&&$dias<floatval($cheque['Cheque']['dias'])){
@@ -444,8 +448,11 @@ echo $this->Form->label('Búsqueda') ?>
                                                 echo $this->Html->image("ver.fw.png", array("alt" => "Ver",'width' => '18', 'heigth' => '18','title'=>'Ver','url' => array('action' => 'view', $cheque['Cheque']['id'])));
 			?>
                             <?php #echo $this->Html->link(__('Ver'), array('action' => 'view', $cheque['Cheque']['id'])); ?>
-			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $cheque['Cheque']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Borrar'), array('action' => 'delete', $cheque['Cheque']['id']), null, __('Está seguro de que desea eliminar el cheque numero # %s?', $cheque['Cheque']['numerodecheque'])); ?>
+			<?php  echo $this->Html->image("editar.fw.png", array("alt" => "Ver",'width' => '18', 'heigth' => '18','title'=>'Editar','url' => array('action' => 'edit', $cheque['Cheque']['id']))); ?>
+			<?php 
+                         $imagen= $this->Html->image("borrargrande.fw.png", array("alt" => "borrar",'width' => '18', 'heigth' =>'18','title'=>'Borrar'));
+                                                 echo $this->Html->link($imagen, array('action' => 'delete', $cheque['Cheque']['id']), array('escape'=>false), sprintf(__('Seguro que quiere eliminar el registro?', $cheque['Cheque']['id'])));
+                        ?>
 		</td>
 	</tr>      
         <?php }else{########################### ?>
@@ -523,9 +530,11 @@ echo $this->Form->label('Búsqueda') ?>
                                                 echo $this->Html->image("ver.fw.png", array("alt" => "Ver",'width' => '18', 'heigth' => '18','title'=>'Ver','url' => array('action' => 'view', $cheque['Cheque']['id'])));
 			?>
                             <?php #echo $this->Html->link(__('Ver'), array('action' => 'view', $cheque['Cheque']['id'])); ?>
-			<?php echo $this->Html->link(__('Editar'), array('action' => 'edit', $cheque['Cheque']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Borrar'), array('action' => 'delete', $cheque['Cheque']['id']), null, __('Está seguro de que desea eliminar el cheque numero # %s?', $cheque['Cheque']['numerodecheque'])); ?>
-		</td>
+			<?php  echo $this->Html->image("editar.fw.png", array("alt" => "Ver",'width' => '18', 'heigth' => '18','title'=>'Editar','url' => array('action' => 'edit', $cheque['Cheque']['id']))); ?>
+			<?php 
+                         $imagen= $this->Html->image("borrargrande.fw.png", array("alt" => "borrar",'width' => '18', 'heigth' =>'18','title'=>'Borrar'));
+                                                 echo $this->Html->link($imagen, array('action' => 'delete', $cheque['Cheque']['id']), array('escape'=>false), sprintf(__('Seguro que quiere eliminar el registro?', $cheque['Cheque']['id'])));
+                        ?></td>
 	</tr>
         
         <?php }}}} ?>
@@ -534,7 +543,7 @@ echo $this->Form->label('Búsqueda') ?>
 	<p>
 	<?php
 	echo $this->Paginator->counter(array(
-	'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+	'format' => __('Página {:page} de {:pages}, mostrando {:current} registros de {:count} en total, iniciando en el registro {:start}, finalizando en {:end}')
 	));
 	?>	</p>
 	<div class="paging">
