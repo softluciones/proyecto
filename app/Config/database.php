@@ -67,7 +67,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => 'usbw',
-		'database' => 'granjsagalonesentrega',
+		'database' => 'granjagalonesentrega',
 		'prefix' => '',
                 'port'=>3307
 		//'encoding' => 'utf8',
