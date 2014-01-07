@@ -29,7 +29,8 @@ class ChequesController extends AppController {
                                             OR cobrado =0
                                             GROUP BY cobrado
                                             ORDER BY COBRADO");
-                //debug($x);
+               debug($sumas);
+               //jose y bet son...
                 if($this->data){  
                     if ($this->data['Cheque']['search_text']) { 
                         $this->set('cheques',  
