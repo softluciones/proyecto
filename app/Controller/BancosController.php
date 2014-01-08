@@ -24,6 +24,7 @@ class BancosController extends AppController {
 	$_SESSION['varia']=1;	
             $this->Banco->recursive = 0;
 		$this->set('bancos', $this->Paginator->paginate());
+                //debug($this->Paginator->paginate());
 	}
 
 /**
