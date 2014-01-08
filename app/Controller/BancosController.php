@@ -25,6 +25,7 @@ class BancosController extends AppController {
             $this->Banco->recursive = 0;
 		$this->set('bancos', $this->Paginator->paginate());
                 //debug($this->Paginator->paginate());
+                //mi prima ciela
 	}
 
 /**
