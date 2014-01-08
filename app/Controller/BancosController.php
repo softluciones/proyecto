@@ -26,6 +26,7 @@ class BancosController extends AppController {
 		$this->set('bancos', $this->Paginator->paginate());
                 //debug($this->Paginator->paginate());
                 //mi prima ciela sssh ss jose
+                //te amo
 	}
 
 /**
