@@ -27,13 +27,11 @@ class BancosController extends AppController {
                 //debug($this->Paginator->paginate());
 
                 //mi prima ciela sssh ss jose
-<<<<<<< HEAD
+
 
                 //mi prima ciela sssh ss
 
-=======
-                //te amo
->>>>>>> origin/jose
+
 	}
 
 /**
