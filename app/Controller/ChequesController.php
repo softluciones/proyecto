@@ -30,7 +30,7 @@ class ChequesController extends AppController {
                                             GROUP BY cobrado
                                             ORDER BY COBRADO");
                //debug($sumas);
-               //jose y bet son novios hermosa a
+               //jose y bet son novios hermosa aux
                 if($this->data){  
                     if ($this->data['Cheque']['search_text']) { 
                         $this->set('cheques',  
