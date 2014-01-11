@@ -29,21 +29,41 @@ class ChequesController extends AppController {
                                             OR cobrado =0
                                             GROUP BY cobrado
                                             ORDER BY COBRADO");
+<<<<<<< HEAD
                //debug($sumas); en esta suma poderosa
                //jose y bet son novios ahora yo jose
                 if($this->data){  
                     debug($this->data);
                     if ($this->data['Cheque']['search_text']) { 
                         $this->set('cheques',  
+=======
+              //debug($sumas);
+               //jose y bet son novios ahora yo jose
+                if($this->data){  
+                    
+                    if($this->data['Cheque']['field']=="1"){
+                        $valor = $this->data['search_text'];
+                         $this->set('cheques',  
+<<<<<<< HEAD
+>>>>>>> betmart
+=======
+>>>>>>> origin/Betmart
+>>>>>>> 14d2f2d3a59300cb75fb983a770dab9285217667
                         $this->paginate('Cheque', array('or' => 
-                            array('Cheque.numerodecheque LIKE' => '%' .  
-                        $this->data['Cheque']['search_text'] . '%')))); 
-                    } 
-                    else { 
-                        $this->set('cheques', $this->paginate('Cheque',
-                                array('or'=>array(array('Cheque.cobrado'=>'1'),
-                                    array('Cheque.cobrado'=>'0')))));
-                    } 
+                            array('Cheque.numerodecheque LIKE' => '%'.$valor.'%'),
+                            array('Cheque.numerodecuenta LIKE' => '%'.$valor.'%'),
+                            array('Cheque1.numerodecheque LIKE' => '%'.$valor.'%'),
+                            array('Cliente.cedula LIKE'=> '%'.$valor.'%'),
+                            array('Banco.codigo LIKE'=>'%'.$valor.'%'),
+                            array('Cliente.nombre LIKE'=>'%'.$valor.'%'),
+                            array('Cliente.apellido LIKE'=>'%'.$valor.'%'),
+                            array('Cliente.apodo LIKE'=>'%'.$valor.'%'),
+                            ))); 
+                    }
+                else{
+                    
+                }
+                 
                   }else{
                       
                     $this->set('cheques', $this->paginate('Cheque',
@@ -325,12 +345,15 @@ class ChequesController extends AppController {
                 
                 $options = array('conditions' => array('Cheque.' . $this->Cheque->primaryKey => $id));
                 $this->request->data = $this->Cheque->find('first', $options);
+                
                 $x=$this->Cheque->query("SELECT montocheque, montodescuentointeres, montoentregado
                                       FROM chequeinterese
                                       WHERE cheque_id=".$id);
                  $this->request->data['Cheque']['cobrado'] = $tipo;
+                 
                  $this->request->data['Cheque']['dias']=  intval($this->request->data['Cheque']['dias'])+1;
                  $this->request->data['Cheque']['monto'] = intval($x[0]['chequeinterese']['montocheque'])+intval($x[0]['chequeinterese']['montodescuentointeres']);
+              
                  $this->Cheque->save($this->request->data);
                  
                  $sql2="select dias,monto from cheques where id=".$id;
@@ -339,7 +362,7 @@ class ChequesController extends AppController {
                  #debug($y[0]['cheques']['dias']);
                  $sql="select * from chequeinterese where cheque_id=".$id."";
                  $xx=  $this->Cheque->query($sql);
-                 debug($xx);
+                 //debug($xx);
                  #exit(0);
                  
                  //copiamos el codigo
