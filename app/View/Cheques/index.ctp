@@ -40,7 +40,7 @@ $("#datepicker").datepicker();
 });
   $('#selector').change(function(){
       
-        if($('#selector option:selected').val()=="Otro."){
+        if($('#selector option:selected').val()=="1"){
             $('#fecha1').css('display','none');
             $('#texto').css('display','block');
         }else{
@@ -60,11 +60,11 @@ $("#datepicker").datepicker();
 </fieldset>	
    
       <div style="float:left; width:80%"> 
-       <select id="selector" style="float:left; width:50%">
-        
-        <option>Listar reporte por fecha.</option>
-        <option>Otro.</option>
-    </select></br>
+          <?php echo $this->Form->input('selector', array(
+    'options' => array('Seleccione fecha a consultar.','Otro.'),
+    'id' => 'selector', 'label'=>'','div'=>null
+)); ?>
+       </br>
     </div> 
     <div id="search_box"> 
     <div style="float:left; width:100%; " id="fecha1">
