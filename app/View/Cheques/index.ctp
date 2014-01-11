@@ -68,11 +68,8 @@ $("#datepicker").datepicker();
 )); ?>
        </br>
 
-       <?php echo $this->Form->input('field', array(
-    'options' => array('Seleccione por Fecha','Otro.'),
-    'id'=>'selector','label'=>'','div'=>null
-));?>
-          </br>
+
+    
 
     </div> 
     <div id="search_box"> 
@@ -609,12 +606,3 @@ echo $this->Form->label('Búsqueda') ?>
 	</div>
 
  </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-         
-=======
-         
->>>>>>> betmart
-=======
-         
->>>>>>> 14d2f2d3a59300cb75fb983a770dab9285217667

@@ -1,23 +1,2 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-1389474019
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-1389457859
->>>>>>> betmart
-=======
-1389476416
->>>>>>> origin/Betmart
->>>>>>> 14d2f2d3a59300cb75fb983a770dab9285217667
-=======
-1389476416
->>>>>>> origin/Betmart
-<<<<<<< HEAD
-=======
-1389457859
->>>>>>> origin/Betmart
-=======
->>>>>>> 14d2f2d3a59300cb75fb983a770dab9285217667
->>>>>>> 868bfd657b3603e8fc5a6c1eb1ef676e6868616d
+1389479927
 a:6:{s:2:"id";a:5:{s:4:"type";s:7:"integer";s:4:"null";b:0;s:7:"default";N;s:6:"length";i:11;s:3:"key";s:7:"primary";}s:7:"created";a:4:{s:4:"type";s:8:"datetime";s:4:"null";b:1;s:7:"default";N;s:6:"length";N;}s:8:"modified";a:4:{s:4:"type";s:8:"datetime";s:4:"null";b:0;s:7:"default";N;s:6:"length";N;}s:9:"cheque_id";a:5:{s:4:"type";s:7:"integer";s:4:"null";b:1;s:7:"default";N;s:6:"length";i:11;s:3:"key";s:5:"index";}s:15:"estadocheque_id";a:5:{s:4:"type";s:7:"integer";s:4:"null";b:1;s:7:"default";N;s:6:"length";i:11;s:3:"key";s:5:"index";}s:7:"user_id";a:5:{s:4:"type";s:7:"integer";s:4:"null";b:0;s:7:"default";N;s:6:"length";i:11;s:3:"key";s:5:"index";}}
