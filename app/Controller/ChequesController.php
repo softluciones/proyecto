@@ -32,6 +32,7 @@ class ChequesController extends AppController {
                //debug($sumas); en esta suma poderosa
                //jose y bet son novios ahora yo jose
                 if($this->data){  
+                    debug($this->data);
                     if ($this->data['Cheque']['search_text']) { 
                         $this->set('cheques',  
                         $this->paginate('Cheque', array('or' => 
