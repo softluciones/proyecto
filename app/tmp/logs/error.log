@@ -145,3 +145,84 @@ Stack Trace:
 #12 C:\Users\Betmart\Dropbox\RH\USBWebserver v8.5\8.5\root\gravimon\proyecto\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ChequesController), Object(CakeRequest), Object(CakeResponse))
 #13 C:\Users\Betmart\Dropbox\RH\USBWebserver v8.5\8.5\root\gravimon\proyecto\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #14 {main}
+2014-01-11 11:15:41 Error: Fatal Error (4): syntax error, unexpected end of file in [C:\Users\Mirlay\Documents\USB\root\proyecto\app\View\Cheques\index.ctp, line 210]
+2014-01-11 11:15:41 Error: [FatalErrorException] syntax error, unexpected end of file
+Request URL: /proyecto/cheques
+Stack Trace:
+#0 C:\Users\Mirlay\Documents\USB\root\proyecto\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\Users\Mirlay...', 210)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\Users\Mirlay...', 210, Array)
+#2 C:\Users\Mirlay\Documents\USB\root\proyecto\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\Users\Mirlay...', 210, Array)
+#3 C:\Users\Mirlay\Documents\USB\root\proyecto\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-01-11 11:25:07 Error: Fatal Error (4): syntax error, unexpected end of file in [C:\Users\Mirlay\Documents\USB\root\proyecto\app\View\Cheques\index.ctp, line 211]
+2014-01-11 11:25:08 Error: [FatalErrorException] syntax error, unexpected end of file
+Request URL: /proyecto/cheques
+Stack Trace:
+#0 C:\Users\Mirlay\Documents\USB\root\proyecto\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\Users\Mirlay...', 211)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\Users\Mirlay...', 211, Array)
+#2 C:\Users\Mirlay\Documents\USB\root\proyecto\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\Users\Mirlay...', 211, Array)
+#3 C:\Users\Mirlay\Documents\USB\root\proyecto\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-01-11 11:27:18 Error: Fatal Error (4): syntax error, unexpected end of file in [C:\Users\Mirlay\Documents\USB\root\proyecto\app\View\Cheques\index.ctp, line 169]
+2014-01-11 11:27:18 Error: [FatalErrorException] syntax error, unexpected end of file
+Request URL: /proyecto/cheques
+Stack Trace:
+#0 C:\Users\Mirlay\Documents\USB\root\proyecto\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\Users\Mirlay...', 169)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\Users\Mirlay...', 169, Array)
+#2 C:\Users\Mirlay\Documents\USB\root\proyecto\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\Users\Mirlay...', 169, Array)
+#3 C:\Users\Mirlay\Documents\USB\root\proyecto\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-01-11 11:29:57 Error: Fatal Error (4): syntax error, unexpected 'endforeach' (T_ENDFOREACH) in [C:\Users\Mirlay\Documents\USB\root\proyecto\app\View\Cheques\index.ctp, line 209]
+2014-01-11 11:29:57 Error: [FatalErrorException] syntax error, unexpected 'endforeach' (T_ENDFOREACH)
+Request URL: /proyecto/cheques
+Stack Trace:
+#0 C:\Users\Mirlay\Documents\USB\root\proyecto\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\Users\Mirlay...', 209)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\Users\Mirlay...', 209, Array)
+#2 C:\Users\Mirlay\Documents\USB\root\proyecto\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\Users\Mirlay...', 209, Array)
+#3 C:\Users\Mirlay\Documents\USB\root\proyecto\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-01-11 11:38:05 Error: [MethodNotAllowedException] Method Not Allowed
+Request URL: /proyecto/cheques/delete/110
+Stack Trace:
+#0 C:\Users\Mirlay\Documents\USB\root\proyecto\app\Controller\ChequesController.php(470): CakeRequest->onlyAllow('post', 'delete')
+#1 [internal function]: ChequesController->delete('110')
+#2 C:\Users\Mirlay\Documents\USB\root\proyecto\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ChequesController), Array)
+#3 C:\Users\Mirlay\Documents\USB\root\proyecto\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 C:\Users\Mirlay\Documents\USB\root\proyecto\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ChequesController), Object(CakeRequest), Object(CakeResponse))
+#5 C:\Users\Mirlay\Documents\USB\root\proyecto\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2014-01-11 11:38:26 Error: [MethodNotAllowedException] Method Not Allowed
+Request URL: /proyecto/cheques/delete/106
+Stack Trace:
+#0 C:\Users\Mirlay\Documents\USB\root\proyecto\app\Controller\ChequesController.php(470): CakeRequest->onlyAllow('post', 'delete')
+#1 [internal function]: ChequesController->delete('106')
+#2 C:\Users\Mirlay\Documents\USB\root\proyecto\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(ChequesController), Array)
+#3 C:\Users\Mirlay\Documents\USB\root\proyecto\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#4 C:\Users\Mirlay\Documents\USB\root\proyecto\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ChequesController), Object(CakeRequest), Object(CakeResponse))
+#5 C:\Users\Mirlay\Documents\USB\root\proyecto\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#6 {main}
+2014-01-11 11:38:39 Error: [MissingActionException] Action ChequesController::d() could not be found.
+Exception Attributes: array (
+  'controller' => 'ChequesController',
+  'action' => 'd',
+)
+Request URL: /proyecto/cheques/d
+Stack Trace:
+#0 C:\Users\Mirlay\Documents\USB\root\proyecto\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 C:\Users\Mirlay\Documents\USB\root\proyecto\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ChequesController), Object(CakeRequest), Object(CakeResponse))
+#2 C:\Users\Mirlay\Documents\USB\root\proyecto\app\webroot\index.php(110): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-01-11 12:18:15 Error: Fatal Error (1): Call to a member function format() on a non-object in [C:\Users\Mirlay\Documents\USB\root\proyecto\app\View\Cheques\index.ctp, line 204]
+2014-01-11 12:18:15 Error: [FatalErrorException] Call to a member function format() on a non-object
+Request URL: /proyecto/cheques
+Stack Trace:
+#0 C:\Users\Mirlay\Documents\USB\root\proyecto\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Call to a membe...', 'C:\Users\Mirlay...', 204)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', 'C:\Users\Mirlay...', 204, Array)
+#2 C:\Users\Mirlay\Documents\USB\root\proyecto\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', 'C:\Users\Mirlay...', 204, Array)
+#3 C:\Users\Mirlay\Documents\USB\root\proyecto\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

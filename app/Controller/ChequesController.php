@@ -467,7 +467,7 @@ class ChequesController extends AppController {
 		if (!$this->Cheque->exists()) {
 			throw new NotFoundException(__('Invalid cheque'));
 		}
-		$this->request->onlyAllow('post', 'delete');
+		#$this->request->onlyAllow('post', 'delete');
 		if ($this->Cheque->delete()) {
 			$this->Session->setFlash(__('The cheque has been deleted.'));
 		} else {
