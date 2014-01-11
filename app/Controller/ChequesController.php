@@ -32,17 +32,25 @@ class ChequesController extends AppController {
               //debug($sumas);
                //jose y bet son novios ahora yo jose
                 if($this->data){  
-                    if ($this->data['Cheque']['search_text']) { 
-                        $this->set('cheques',  
+                    debug($this->data);
+                    if($this->data['Cheque']['field']=="1"){
+                        $valor = $this->data['search_text'];
+                         $this->set('cheques',  
                         $this->paginate('Cheque', array('or' => 
-                            array('Cheque.numerodecheque LIKE' => '%' .  
-                        $this->data['Cheque']['search_text'] . '%')))); 
-                    } 
-                    else { 
-                        $this->set('cheques', $this->paginate('Cheque',
-                                array('or'=>array(array('Cheque.cobrado'=>'1'),
-                                    array('Cheque.cobrado'=>'0')))));
-                    } 
+                            array('Cheque.numerodecheque LIKE' => '%'.$valor.'%'),
+                            array('Cheque.numerodecuenta LIKE' => '%'.$valor.'%'),
+                            array('Cheque1.numerodecheque LIKE' => '%'.$valor.'%'),
+                            array('Cliente.cedula LIKE'=> '%'.$valor.'%'),
+                            array('Banco.codigo LIKE'=>'%'.$valor.'%'),
+                            array('Cliente.nombre LIKE'=>'%'.$valor.'%'),
+                            array('Cliente.apellido LIKE'=>'%'.$valor.'%'),
+                            array('Cliente.apodo LIKE'=>'%'.$valor.'%'),
+                            ))); 
+                    }
+                else{
+                    
+                }
+                 
                   }else{
                       
                     $this->set('cheques', $this->paginate('Cheque',

@@ -89,7 +89,7 @@ echo $this->Form->label('Búsqueda') ?>
     </div>
 </form>
 
-<div style="float:left;  width:40%; clear: none; padding-top: 40px; ">
+<div style="float:left;  width:50%; clear: none; padding-top: 40px; ">
                
     <?php if(!empty($sumas)){ ?>
     <h3>Monto a cobrar por cheques por cobrar y por cheques devueltos</h3>
@@ -170,7 +170,7 @@ echo $this->Form->label('Búsqueda') ?>
 	</tr>
         </thead>
 	<?php 
-        #debug($cheques);
+       # debug($cheques);
         foreach ($cheques as $cheque): ?>
 	<?php 
                 
