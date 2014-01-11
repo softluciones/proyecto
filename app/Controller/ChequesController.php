@@ -339,14 +339,16 @@ class ChequesController extends AppController {
                 $x=$this->Cheque->query("SELECT montocheque, montodescuentointeres, montoentregado
                                       FROM chequeinterese
                                       WHERE cheque_id=".$id);
-                 $this->request->data['Cheque']['cobrado'] = $tipo;
+                 $cobrado=$this->request->data['Cheque']['cobrado'] = $tipo;
                  
-                 $this->request->data['Cheque']['dias']=  intval($this->request->data['Cheque']['dias'])+1;
-                 $this->request->data['Cheque']['monto'] = intval($x[0]['chequeinterese']['montocheque'])+intval($x[0]['chequeinterese']['montodescuentointeres']);
+                 $dias=$this->request->data['Cheque']['dias']=  intval($this->request->data['Cheque']['dias'])+1;
+                 $monto=$this->request->data['Cheque']['monto'] = intval($x[0]['chequeinterese']['montocheque'])+intval($x[0]['chequeinterese']['montodescuentointeres']);
                 
                  $que=$this->Cheque->save($this->request->data);
-                  debug($que);
-                 exit(0);
+                  if(!$que){
+                      $this->Cheque->query("UPDATE cheques SET cobrado=".$cobrado.", dias=".$dias.", 
+                          monto=".$monto.", modified=NOW() WHERE id = ".$id);
+                  }
                  $sql2="select dias,monto from cheques where id=".$id;
                  $y=  $this->Cheque->query($sql2);
                  
