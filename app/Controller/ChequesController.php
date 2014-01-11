@@ -324,12 +324,15 @@ class ChequesController extends AppController {
                 
                 $options = array('conditions' => array('Cheque.' . $this->Cheque->primaryKey => $id));
                 $this->request->data = $this->Cheque->find('first', $options);
+                
                 $x=$this->Cheque->query("SELECT montocheque, montodescuentointeres, montoentregado
                                       FROM chequeinterese
                                       WHERE cheque_id=".$id);
                  $this->request->data['Cheque']['cobrado'] = $tipo;
+                 
                  $this->request->data['Cheque']['dias']=  intval($this->request->data['Cheque']['dias'])+1;
                  $this->request->data['Cheque']['monto'] = intval($x[0]['chequeinterese']['montocheque'])+intval($x[0]['chequeinterese']['montodescuentointeres']);
+              
                  $this->Cheque->save($this->request->data);
                  
                  $sql2="select dias,monto from cheques where id=".$id;
@@ -338,7 +341,7 @@ class ChequesController extends AppController {
                  #debug($y[0]['cheques']['dias']);
                  $sql="select * from chequeinterese where cheque_id=".$id."";
                  $xx=  $this->Cheque->query($sql);
-                 debug($xx);
+                 //debug($xx);
                  #exit(0);
                  
                  //copiamos el codigo

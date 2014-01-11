@@ -52,8 +52,9 @@ $("#datepicker").datepicker();
   </script>
 
  
-<?php echo $this->Form->create('Cheque', array('url' => array('action' => 'index'))); ?> 
+
  <div class="box">
+     <?php echo $this->Form->create('Cheque', array('url' => array('action' => 'index'))); ?> 
    <div style="float:left;width:50%; ">
       <fieldset>
 <legend><?php echo __('Cheques'); ?></legend>
@@ -86,8 +87,9 @@ echo $this->Form->label('Búsqueda') ?>
 
 </div> 
     </div>
+</form>
 
-    <div style="float:left; width:40%; clear: none; padding-top: 40px; ">
+<div style="float:left;  width:40%; clear: none; padding-top: 40px; ">
                
     <?php if(!empty($sumas)){ ?>
     <h3>Monto a cobrar por cheques por cobrar y por cheques devueltos</h3>
@@ -115,7 +117,9 @@ echo $this->Form->label('Búsqueda') ?>
                              echo h(number_format(floatval($sumas[1][0]['sumato']),2,',','.'))." Bs";
                         }else{
                             echo h(number_format(floatval($sumas[0][0]['sumato']),2,',','.'))." Bs";
-                        }}else{
+                        }
+                        
+                        }else{
                             echo h(number_format(floatval(0),2,',','.'))." Bs";
                         }?></div></th>
         </tr>
@@ -137,9 +141,9 @@ echo $this->Form->label('Búsqueda') ?>
     ?>
     </div>
        
-    <h2><?php #debug($sumas); 
+<h2 style="clear: both"><?php #debug($sumas); 
         echo __('Cheques por cobrar y devueltos'); ?></h2>
-	<table cellpadding="0" cellspacing="0" align="center" style="width:105%">
+	<table cellpadding="0" cellspacing="0" align="center" style="width:100%">
             <thead>
 	<tr>
 			
@@ -154,7 +158,7 @@ echo $this->Form->label('Búsqueda') ?>
                         <th style="width:5%;" scope="col"><?php echo $this->Paginator->sort('montointereses','Intereses'); ?></th>
                         <th style="width:5%;" scope="col"><?php echo $this->Paginator->sort('montoentregado', 'Entregado'); ?></th>
                         
-			<th style="width:10%;" scope="col"><?php echo $this->Paginator->sort('fecharecibido', 'Recibido'); ?></th>
+			<th style="width:5%;" scope="col"><?php echo $this->Paginator->sort('fecharecibido', 'Recibido'); ?></th>
 			<th style="width:10%;" scope="col"><?php echo $this->Paginator->sort('fechacobro','Cobro'); ?></th>
 			
 			<th style="width:10%;" scope="col"><?php echo $this->Paginator->sort('modified','Modificado'); ?></th>
@@ -162,7 +166,7 @@ echo $this->Form->label('Búsqueda') ?>
                         <th style="width:0.5%;" scope="col"><?php echo $this->Paginator->sort('estado','Edo.'); ?></th>
 			<th style="width:5%;" scope="col"><?php echo $this->Paginator->sort('id_cheque','Pago de'); ?></th>
 			<th style="width:5%;" scope="col"><?php echo $this->Paginator->sort('user_id', 'Usuario'); ?></th>
-			<th style="width:30%;"><?php echo __('Acciones'); ?></th>
+			<th style="width:10%;"><?php echo __('Acciones'); ?></th>
 	</tr>
         </thead>
 	<?php 
