@@ -147,7 +147,7 @@ echo $this->Form->label('Búsqueda') ?>
              <th style="background: #528CE0;"><br><br></th>
              <th style="background: #ffffff;"><br><br></th>
              <th style="background: #f00;"><br><br></th>
-             <th style="background: #FECA40;;"><br><br></th>
+             <th style="background: #FECA40;"><br><br></th>
          </tr>
      </table>    
     <h2><?php #debug($sumas); 
