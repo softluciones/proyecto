@@ -32,7 +32,7 @@ class ChequesController extends AppController {
               //debug($sumas);
                //jose y bet son novios ahora yo jose
                 if($this->data){  
-                    debug($this->data);
+                    
                     if($this->data['Cheque']['field']=="1"){
                         $valor = $this->data['search_text'];
                          $this->set('cheques',  
@@ -48,7 +48,7 @@ class ChequesController extends AppController {
                             ))); 
                     }
                 else{
-                    
+                    debug($this->data);
                 }
                  
                   }else{
