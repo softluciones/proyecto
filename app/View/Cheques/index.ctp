@@ -26,6 +26,7 @@ background: none;
 	background: none;
         padding: 0px;
         border: none;
+        
 }
 
 </style>

@@ -48,7 +48,7 @@ class ChequesController extends AppController {
                             ))); 
                     }
                 else{
-                    debug($this->data);
+                    
                 }
                  
                   }else{
