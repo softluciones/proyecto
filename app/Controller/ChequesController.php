@@ -324,7 +324,8 @@ class ChequesController extends AppController {
                 return $dias;
          }
          public function editadevuelto($id=null){
-            $id=  $this->params['pass'][0];
+            
+             $id=  $this->params['pass'][0];
             $tipo=  $this->params['pass'][1];
             
             
@@ -342,9 +343,10 @@ class ChequesController extends AppController {
                  
                  $this->request->data['Cheque']['dias']=  intval($this->request->data['Cheque']['dias'])+1;
                  $this->request->data['Cheque']['monto'] = intval($x[0]['chequeinterese']['montocheque'])+intval($x[0]['chequeinterese']['montodescuentointeres']);
-              
-                 $this->Cheque->save($this->request->data);
-                 
+                
+                 $que=$this->Cheque->save($this->request->data);
+                  debug($que);
+                 exit(0);
                  $sql2="select dias,monto from cheques where id=".$id;
                  $y=  $this->Cheque->query($sql2);
                  

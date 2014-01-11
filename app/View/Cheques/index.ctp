@@ -99,10 +99,12 @@ echo $this->Form->label('Búsqueda') ?>
     <?php if(!empty($sumas)){ ?>
     <h3>Monto a cobrar por cheques por cobrar y por cheques devueltos</h3>
     <table cellpadding="0" cellspacing="0" style="width: 100%;">
+        <thead>
         <tr style="background: #528CE0;">
             <th>Estado del cheque</th>
             <th>Monto total cheques a cobrar</th>
         </tr>
+        </thead>
         <tr>
             <th>Monto por cobrar</th>       
             <th><div style="float: right"><?php if(!empty($sumas[0])){
@@ -146,13 +148,15 @@ echo $this->Form->label('Búsqueda') ?>
     ?>
     </div>
 
-     <table>
+     <table style="width:100%;">
+         <thead>
          <tr>
              <th>Cheque Se Cobra Hoy</th>
              <th>Cheque cobrar en un futuro</th>
              <th>Cheque Devuelto</th>
              <th>Cheque olvidados por cobrar</th>
          </tr>
+         </thead>
          <tr>
              <th style="background: #528CE0;"><br><br></th>
              <th style="background: #ffffff;"><br><br></th>
