@@ -37,6 +37,7 @@ class ChequesController extends AppController {
                     if($this->data['Cheque']['field']=="1"){
                         $valor = $this->data['search_text'];
                          $this->set('cheques',  
+
                         $this->paginate('Cheque', array('or' => 
                             array('Cheque.numerodecheque LIKE' => '%'.$valor.'%'),
                             array('Cheque.numerodecuenta LIKE' => '%'.$valor.'%'),

@@ -31,7 +31,15 @@ class BancosController extends AppController {
 
 
 =======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> betmart
+=======
 >>>>>>> origin/Betmart
+>>>>>>> 14d2f2d3a59300cb75fb983a770dab9285217667
+=======
+>>>>>>> origin/Betmart
+>>>>>>> 14d2f2d3a59300cb75fb983a770dab9285217667
                 //mi prima ciela sssh ss
 
 

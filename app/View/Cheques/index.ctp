@@ -61,19 +61,19 @@ $("#datepicker").datepicker();
 </fieldset>	
    
       <div style="float:left; width:80%"> 
-<<<<<<< HEAD
+
           <?php echo $this->Form->input('selector', array(
     'options' => array('Seleccione fecha a consultar.','Otro.'),
     'id' => 'selector', 'label'=>'','div'=>null
 )); ?>
        </br>
-=======
+
        <?php echo $this->Form->input('field', array(
     'options' => array('Seleccione por Fecha','Otro.'),
     'id'=>'selector','label'=>'','div'=>null
 ));?>
           </br>
->>>>>>> origin/Betmart
+
     </div> 
     <div id="search_box"> 
     <div style="float:left; width:100%; " id="fecha1">
@@ -169,6 +169,12 @@ echo $this->Form->label('Búsqueda') ?>
 <h2 style="clear: both">
     <?php #debug($sumas); 
 
+
+
+       
+
+
+
         echo __('Cheques por cobrar y devueltos'); ?></h2>
 	<table cellpadding="0" cellspacing="0" align="center" style="width:100%">
             <thead>
@@ -196,12 +202,16 @@ echo $this->Form->label('Búsqueda') ?>
 			<th style="width:10%;"><?php echo __('Acciones'); ?></th>
 	</tr>
         </thead>
-      
-<?php 
 
+
+
+
+
+	<?php 
        # debug($cheques);
         foreach ($cheques as $cheque): ?>
 	<?php 
+
 
                 
                 $fecha1=$cheque['Cheque']['fechacobro'];
@@ -599,4 +609,12 @@ echo $this->Form->label('Búsqueda') ?>
 	</div>
 
  </div>
+<<<<<<< HEAD
+<<<<<<< HEAD
          
+=======
+         
+>>>>>>> betmart
+=======
+         
+>>>>>>> 14d2f2d3a59300cb75fb983a770dab9285217667
