@@ -29,14 +29,7 @@ class ChequesController extends AppController {
                                             OR cobrado =0
                                             GROUP BY cobrado
                                             ORDER BY COBRADO");
-<<<<<<< HEAD
-               //debug($sumas); en esta suma poderosa
-               //jose y bet son novios ahora yo jose
-                if($this->data){  
-                    debug($this->data);
-                    if ($this->data['Cheque']['search_text']) { 
-                        $this->set('cheques',  
-=======
+
               //debug($sumas);
                //jose y bet son novios ahora yo jose
                 if($this->data){  
@@ -44,7 +37,6 @@ class ChequesController extends AppController {
                     if($this->data['Cheque']['field']=="1"){
                         $valor = $this->data['search_text'];
                          $this->set('cheques',  
->>>>>>> origin/Betmart
                         $this->paginate('Cheque', array('or' => 
                             array('Cheque.numerodecheque LIKE' => '%'.$valor.'%'),
                             array('Cheque.numerodecuenta LIKE' => '%'.$valor.'%'),
@@ -57,7 +49,7 @@ class ChequesController extends AppController {
                             ))); 
                     }
                 else{
-                    
+                    debug($this->data);
                 }
                  
                   }else{

@@ -26,7 +26,6 @@ background: none;
 	background: none;
         padding: 0px;
         border: none;
-        
 }
 
 </style>
@@ -149,7 +148,7 @@ echo $this->Form->label('Búsqueda') ?>
     <?php } 
     ?>
     </div>
-<<<<<<< HEAD
+
      <table>
          <tr>
              <th>Cheque Se Cobra Hoy</th>
@@ -165,10 +164,11 @@ echo $this->Form->label('Búsqueda') ?>
          </tr>
      </table>    
     <h2><?php #debug($sumas); 
-=======
-       
-<h2 style="clear: both"><?php #debug($sumas); 
->>>>>>> origin/Betmart
+
+       ?>
+<h2 style="clear: both">
+    <?php #debug($sumas); 
+
         echo __('Cheques por cobrar y devueltos'); ?></h2>
 	<table cellpadding="0" cellspacing="0" align="center" style="width:100%">
             <thead>
@@ -196,15 +196,13 @@ echo $this->Form->label('Búsqueda') ?>
 			<th style="width:10%;"><?php echo __('Acciones'); ?></th>
 	</tr>
         </thead>
-<<<<<<< HEAD
-<?php foreach ($cheques as $cheque): ?>        
+      
 <?php 
-=======
-	<?php 
+
        # debug($cheques);
         foreach ($cheques as $cheque): ?>
 	<?php 
->>>>>>> origin/Betmart
+
                 
                 $fecha1=$cheque['Cheque']['fechacobro'];
                 $fecha2=date('Y-m-d');
