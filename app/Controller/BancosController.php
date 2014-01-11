@@ -24,11 +24,14 @@ class BancosController extends AppController {
 	$_SESSION['varia']=1;	
             $this->Banco->recursive = 0;
 		$this->set('bancos', $this->Paginator->paginate());
+<<<<<<< HEAD
                 //debug($this->Paginator->paginate());
 
                 //mi prima ciela sssh ss jose
 
 
+=======
+>>>>>>> origin/Betmart
                 //mi prima ciela sssh ss
 
 
