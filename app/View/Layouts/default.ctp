@@ -63,8 +63,8 @@ $("#datepicker").datepicker();
          
          <li class='has-sub'><a href='#'><span>Pagos a Terceros</span></a>
             <ul>
-               <li><?php echo $this->Html->link("Nuevo pago", array('controller'=>'pagosterceros','action' => 'add'), array('escape' => false));?></li>
-               <li><?php echo $this->Html->link("Lista pago", array('controller'=>'pagosterceros','action' => 'index'), array('escape' => false));?></li>
+               <li><?php echo $this->Html->link("Nuevo pago", array('controller'=>'pagoterceros','action' => 'add'), array('escape' => false));?></li>
+               <li><?php echo $this->Html->link("Lista pago", array('controller'=>'pagoterceros','action' => 'index'), array('escape' => false));?></li>
             </ul>
          </li>
       </ul>
@@ -96,7 +96,7 @@ $("#datepicker").datepicker();
       </ul>
    </li>
    <li><?php 
-   if($_SESSION['varia']==1)
+   if($_SESSION['varia'] === 1)
         echo $this->Html->link("Cerrar Sesión", array('controller'=>'users','action' => 'logout'), array('escape' => false));?></span></a></li>
 </ul>
 </div>

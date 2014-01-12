@@ -19,7 +19,7 @@ class PagotercerosController extends AppController {
  * index method
  *
  * @return void
- */
+ */ ///josjeosjeosjeosjeosej
 	public function index() {
                 $_SESSION['varia']=1;
 		$this->Pagotercero->recursive = 1;
