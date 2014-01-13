@@ -58,17 +58,41 @@ for($i=0;$i<12;$i++){
 <?php echo $this->Form->create('Pagotercero'); ?>
 	<fieldset>
 		<legend><?php echo __('Agregar Pago a terceros'); ?></legend>
+                <br>
+                <table>
+                    <tr>
+                        <th><?php echo $this->Form->input('dia',array('value'=>$dia)); ?></th>
+                        <th><?php echo $this->Form->input('monto'); ?></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th colspan="3" style="alignment-adjust: central;">Pago a tercero de origen al destino.</th>
+                    </tr>
+                    <tr>
+                        <th><?php echo $this->Form->input('cliente_id',array('label'=>'Cliente Origen')); ?></th>
+                        <th><?php echo $this->Form->input('cliente1s',array('label'=>'Destino')); ?></th>
+                        <th><?php echo $this->Form->input('cheque_id',array('label'=>'Numero de cheque')); ?></th>
+                    </tr>
+                    <tr>
+                        <th colspan="3"><?php echo $this->Form->input('conceptode',array('label'=>'Concepto de')); ?></th>
+                    </tr>
+                    <tr>
+                        <th><?php echo $this->Form->input('user_id',array('label'=>'Registrado por')); ?></th>
+                        <th><?php echo $this->Form->end(__('Registrar')); ?></th>
+                        <th></th>
+                    </tr>
+                </table>
 	<?php
-		echo $this->Form->input('dia',array('value'=>$dia));
+		/*echo $this->Form->input('dia',array('value'=>$dia));
 		echo $this->Form->input('monto');
 		echo $this->Form->input('conceptode');
-		echo $this->Form->input('cliente_id',array('label'=>'Cliente Origen a destino'));
+		/*echo $this->Form->input('cliente_id',array('label'=>'Cliente Origen a destino'));
 		echo $this->Form->input('cliente1s',array('label'=>'Cliente a pagar'));
 		echo $this->Form->input('cheque_id',array('label'=>'Monto del cheque'));
-		echo $this->Form->input('user_id',array('label'=>'Registrado por'));
+		echo $this->Form->input('user_id',array('label'=>'Registrado por'));*/
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Registrar')); ?>
+<?php #echo $this->Form->end(__('Registrar')); ?>
 </div>
 <div class="actions">
 	<h3><?php echo __('Operaciones'); ?></h3>

@@ -48,7 +48,7 @@ class PagotercerosController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function add($id=null) {
             $_SESSION['varia']=1;
 		if ($this->request->is('post')) {
 			$this->Pagotercero->create();
@@ -68,10 +68,15 @@ class PagotercerosController extends AppController {
 				$this->Session->setFlash(__('El pago a terceros no ha sido efectivo. Prueba otra vez y revisa'));
 			}
 		}
-		$clientes = $this->Pagotercero->Cliente->find('list');
+                if($id==null){
+                    $clientes = $this->Pagotercero->Cliente->find('list');
+                    $cheques = $this->Pagotercero->Cheque->find('list');
+                }else{
+                    
+                }
 		#$cliente1s = $this->Pagotercero->Cliente->find('list',array('fields' => array('Cliente.nombres')));
                 $cliente1s = $this->Pagotercero->Cliente->find('list');
-		$cheques = $this->Pagotercero->Cheque->find('list');
+		
 		$users = $this->Pagotercero->User->find('list');
                 $x=$this->Pagotercero->query("select id, username from users where id=".$this->Auth->user('id')."");                
                 $users=array($x[0]['users']['id']=>$x[0]['users']['username']);
