@@ -57,7 +57,8 @@ $("#datepicker").datepicker();
      <?php echo $this->Form->create('Cheque', array('url' => array('action' => 'index'))); ?> 
    <div style="float:left;width:50%; ">
       <fieldset>
-<legend><?php echo __('Cheques'); ?></legend>
+<legend><?php echo __('Cheques ') ; ?>
+<?php  echo $this->Html->image("anade.fw.png", array("alt" => "Agregar Cheque",'width' => '20', 'heigth' => '20','title'=>'Agregar Cheque','url' => array('action' => 'add'))); ?></legend>
 </fieldset>	
    
       <div style="float:left; width:80%"> 
@@ -148,8 +149,13 @@ echo $this->Form->label('Búsqueda') ?>
     ?>
     </div>
 
-     <table style="width:100%;">
+     <table style="width:50%;">
          <thead>
+             <tr>
+                 <th colspan="4" style="background:#ffffff;">
+         <div align="center"> LEYENDA DE COLORES </div>
+                 </th>
+             </tr>
          <tr>
              <th>Cheque Se Cobra Hoy</th>
              <th>Cheque cobrar en un futuro</th>
