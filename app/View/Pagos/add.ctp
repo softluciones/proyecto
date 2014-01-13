@@ -21,8 +21,13 @@
                 <th><?php echo $this->Form->input('tipopago_id'); ?></th>
             </tr>
             <tr>
+                <?php if($otro!=1){ ?>
                 <th colspan="3"><?php echo $this->Form->input('pagotercero_id',array('type'=>'text')); ?></th>
-                <th><?php echo $this->Form->input('user_id'); ?></th>
+                <th><?php echo $this->Form->input('user_id',array('label'=>'text')); ?></th>
+                <?php }else{ ?>
+                <th colspan="3"><?php echo $this->Form->input('user_id'); ?></th>
+                <th></th>
+                <?php }?>
             </tr>
             <tr>
                 <th colspan="4"><?php echo $this->Form->input('conceptode'); ?></th>

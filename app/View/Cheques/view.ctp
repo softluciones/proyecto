@@ -288,6 +288,7 @@
 		</ul>
 	</div>
 </div>
+<?php if($cheque['Cheque']['cobrado']==0){ ?>
 <div class="related">
 	<h3><?php echo __('Related Pagos'); ?></h3>
 	<?php if (!empty($cheque['Pago'])): ?>
@@ -337,10 +338,11 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Pago'), array('controller' => 'pagos', 'action' => 'add')); ?> </li>
+			<li><?php echo $this->Html->link(__('New Pago'), array('controller' => 'pagos', 'action' => 'add/'.$cheque['Cheque']['id'].'/1/'.$cheque['Cheque']['cobrado'],$cheque['Cliente']['id'])); ?> </li>
 		</ul>
 	</div>
 </div>
+<?php } ?>
 <div class="related">
 	<h3><?php echo __('Related Pagoterceros'); ?></h3>
 	<?php if (!empty($cheque['Pagotercero'])): ?>
