@@ -49,6 +49,9 @@ class PagotercerosController extends AppController {
  * @return void
  */
 	public function add($id=null) {
+            $id=  $this->params['pass'][0];
+            $chequ=  $this->params['pass'][1];
+            
             $_SESSION['varia']=1;
 		if ($this->request->is('post')) {
 			$this->Pagotercero->create();
@@ -72,6 +75,12 @@ class PagotercerosController extends AppController {
                     $clientes = $this->Pagotercero->Cliente->find('list');
                     $cheques = $this->Pagotercero->Cheque->find('list');
                 }else{
+                    $conditions=array('Cliente.id'=>$chequ);
+         	    $clientes = $this->Pagotercero->Cliente->find('list',array('fields'=>array('id','nombres'),
+                                                                                   'conditions'=>$conditions));
+                    $conditions=array('Cheque.id'=>$id);
+         	    $cheques = $this->Pagotercero->Cheque->find('list',array('fields'=>array('id','numerodecheque'),
+                                                                                   'conditions'=>$conditions));
                     
                 }
 		#$cliente1s = $this->Pagotercero->Cliente->find('list',array('fields' => array('Cliente.nombres')));

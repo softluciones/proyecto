@@ -295,6 +295,7 @@ class ChequesController extends AppController {
                     $conditions=array('Cliente.id'=>$id);
          	    $clientes = $this->Cheque->Cliente->find('list',array('fields'=>array('id','nombres'),
                                                                                    'conditions'=>$conditions));
+                    debug($clientes);
                    
                 }
 		$interese = $this->Cheque->Interese->find('list',array('fields'=>array('id','rango')));
