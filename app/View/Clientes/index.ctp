@@ -32,11 +32,21 @@
 		<td>
 			<?php echo $this->Html->link($cliente['User']['username'], array('controller' => 'users', 'action' => 'view', $cliente['User']['id'])); ?>
 		</td>
-		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $cliente['Cliente']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $cliente['Cliente']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $cliente['Cliente']['id']), null, __('Are you sure you want to delete # %s?', $cliente['Cliente']['id'])); ?>
-		</td>
+                <td class="actions">
+                    
+                        <?php 
+                                                echo $this->Html->image("ver.fw.png", array("alt" => "Ver",'width' => '18', 'heigth' => '18','title'=>'Ver','url' => array('action' => 'view',$cliente['Cliente']['id'])));
+			?>
+                                    
+                                    <?php #echo $this->Html->link(__('Ver'), array('action' => 'view', $cheque['Cheque']['id'])); ?>
+			<?php  echo $this->Html->image("editar.fw.png", array("alt" => "Editar",'width' => '18', 'heigth' => '18','title'=>'Editar','url' => array('action' => 'edit', $cliente['Cliente']['id']))); ?>
+			<?php 
+                         $imagen= $this->Html->image("borrargrande.fw.png", array("alt" => "borrar",'width' => '18', 'heigth' =>'18','title'=>'Borrar'));
+                                                 echo $this->Html->link($imagen, array('action' => 'delete', $cliente['Cliente']['id']), array('escape'=>false), sprintf(__('Seguro que quiere eliminar el registro?', $cliente['Cliente']['id'])));
+                        
+                   ?>
+                </td>
+		
 	</tr>
 <?php endforeach; ?>
 	</table>

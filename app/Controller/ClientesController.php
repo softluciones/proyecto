@@ -127,12 +127,13 @@ class ClientesController extends AppController {
 		} else {
 			$options = array('conditions' => array('Cliente.' . $this->Cliente->primaryKey => $id));
 			$this->request->data = $this->Cliente->find('first', $options);
+                        #debug($this->request->data);
 		}
 		$users = $this->Cliente->User->find('list');
                 $x=$this->Cliente->query("select id, username from users where id=".$this->Auth->user('id')."");
                 
                 $users=array($x[0]['users']['id']=>$x[0]['users']['username']);
-		$this->set(compact('users'));
+		$this->set(compact('users','id'));
 	}
 
 /**

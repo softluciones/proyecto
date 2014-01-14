@@ -3,18 +3,44 @@
 	<fieldset>
 		<legend><?php echo __('Registrar Cliente'); ?></legend>
                 
-        
-	<?php
-		echo $this->Form->input('cedula');
+                <br>
+                <table>
+                    <tr>
+                        <th colspan="3"><div align="center">Datos personales</div></th>
+                    </tr>
+                    <tr>
+                        <th><?php echo $this->Form->input('cedula'); ?></th>
+                        <th><?php echo $this->Form->input('nombre'); ?></th>
+                        <th><?php echo $this->Form->input('apellido'); ?></th>
+                    </tr>
+                    <tr>
+                        <th><?php echo $this->Form->input('apodo'); ?></th>
+                        <th><?php echo $this->Form->input('negocio'); ?></th>
+                        <th><?php echo $this->Form->input('email'); ?></th>
+                    </tr>
+                    <tr>
+                        <th colspan="3"><?php echo $this->Form->input('direccion'); ?></th>
+                    </tr>
+                    <tr>
+                        <th colspan="3"><div align="center">Numero de telefonos</div></th>
+                    </tr>
+                    <tr>
+                        <th><?php echo $this->Form->input('telefonofijo'); ?></th>
+                        <th><?php echo $this->Form->input('telefonocelular'); ?></th>
+                        <th><?php echo $this->Form->input('user_id',array('label'=>'Registrado por')); ?></th>
+                    </tr>
+                </table>
+         <?php
+		/*echo $this->Form->input('cedula');
 		echo $this->Form->input('nombre');
 		echo $this->Form->input('apellido');
 		echo $this->Form->input('apodo');
-		echo $this->Form->input('negocio');
-		echo $this->Form->input('direccion');
-		echo $this->Form->input('telefonofijo');
-		echo $this->Form->input('telefonocelular');
-		echo $this->Form->input('email');
-		echo $this->Form->input('user_id');
+		echo $this->Form->input('negocio');*/
+		#echo $this->Form->input('direccion');
+		#echo $this->Form->input('telefonofijo');
+		#echo $this->Form->input('telefonocelular');
+		#echo $this->Form->input('email');
+		#echo $this->Form->input('user_id');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Registrar')); ?>

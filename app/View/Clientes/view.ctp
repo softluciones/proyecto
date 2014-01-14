@@ -6,7 +6,7 @@
 			<?php echo h($cliente['Cliente']['id']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Created'); ?></dt>
+		<dt><?php echo __('Fecha registro'); ?></dt>
 		<dd>
 			<?php echo h($cliente['Cliente']['created']); ?>
 			&nbsp;
@@ -41,12 +41,12 @@
 			<?php echo h($cliente['Cliente']['direccion']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Telefonofijo'); ?></dt>
+		<dt><?php echo __('Telefono fijo'); ?></dt>
 		<dd>
 			<?php echo h($cliente['Cliente']['telefonofijo']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Telefonocelular'); ?></dt>
+		<dt><?php echo __('Telefono celular'); ?></dt>
 		<dd>
 			<?php echo h($cliente['Cliente']['telefonocelular']); ?>
 			&nbsp;
@@ -56,7 +56,7 @@
 			<?php echo h($cliente['Cliente']['email']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('User'); ?></dt>
+		<dt><?php echo __('Registrado por'); ?></dt>
 		<dd>
 			<?php echo $this->Html->link($cliente['User']['username'], array('controller' => 'users', 'action' => 'view', $cliente['User']['id'])); ?>
 			&nbsp;
