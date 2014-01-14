@@ -34,23 +34,36 @@ class ChequesController extends AppController {
                //jose y bet son novios ahora yo jose
                 if($this->data){  
                     
-                    if($this->data['Cheque']['field']=="1"){
-                        $valor = $this->data['search_text'];
+                    if($this->data['Cheque']['selector']=="1"){
+                        $valor = $this->data['search_text1'];
+                        debug($valor);
+                        $busca=$this->Cheque->find('all', array('or' => 
+                            array('Cheque.numerodecheque LIKE' => '%'.$valor.'%',
+                            'Cheque.numerodecuenta LIKE' => '%'.$valor.'%',
+                            'Cheque1.numerodecheque LIKE' => '%'.$valor.'%',
+                            'Cliente.cedula LIKE'=> '%'.$valor.'%',
+                            'Banco.codigo LIKE'=>'%'.$valor.'%',
+                           'Cliente.nombre LIKE'=>'%'.$valor.'%',
+                            'Cliente.apellido LIKE'=>'%'.$valor.'%',
+                           'Cliente.apodo LIKE'=>'%'.$valor.'%'
+                            )));
+                        debug($busca);
                          $this->set('cheques',  
 
                         $this->paginate('Cheque', array('or' => 
-                            array('Cheque.numerodecheque LIKE' => '%'.$valor.'%'),
-                            array('Cheque.numerodecuenta LIKE' => '%'.$valor.'%'),
-                            array('Cheque1.numerodecheque LIKE' => '%'.$valor.'%'),
-                            array('Cliente.cedula LIKE'=> '%'.$valor.'%'),
-                            array('Banco.codigo LIKE'=>'%'.$valor.'%'),
-                            array('Cliente.nombre LIKE'=>'%'.$valor.'%'),
-                            array('Cliente.apellido LIKE'=>'%'.$valor.'%'),
-                            array('Cliente.apodo LIKE'=>'%'.$valor.'%'),
-                            ))); 
+                            array('Cheque.numerodecheque LIKE' => '%'.$valor.'%',
+                            'Cheque.numerodecuenta LIKE' => '%'.$valor.'%',
+                            'Cheque1.numerodecheque LIKE' => '%'.$valor.'%',
+                            'Cliente.cedula LIKE'=> '%'.$valor.'%',
+                            'Banco.codigo LIKE'=>'%'.$valor.'%',
+                           'Cliente.nombre LIKE'=>'%'.$valor.'%',
+                            'Cliente.apellido LIKE'=>'%'.$valor.'%',
+                           'Cliente.apodo LIKE'=>'%'.$valor.'%'
+                            )))); 
                     }
                 else{
                     debug($this->data);
+                    
                 }
                  
                   }else{

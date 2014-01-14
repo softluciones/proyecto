@@ -86,7 +86,7 @@ echo $this->Form->label('Búsqueda por fecha') ?>
     <?php 
 
 echo $this->Form->label('Búsqueda') ?>
-<?php echo $this->Form->input('search_text', array('style' => 'width:80%;', 'div'=> false,'label' => false,
+<?php echo $this->Form->input('search_text1', array('style' => 'width:80%;', 'div'=> false,'label' => false,
                                                     'placeholder'=>'Ingrese Nro. cheque o banco o cliente, etc...  ')); ?> 
 <?php echo $this->Form->end('Buscar'); ?>      
 </div> 
