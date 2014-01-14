@@ -1,21 +1,40 @@
 <div class="cheques form">
 <?php echo $this->Form->create('Cheque'); ?>
 	<fieldset>
-		<legend><?php echo __('Edit Cheque'); ?></legend>
+		<legend><?php echo __('Editar Cheque'); ?></legend>
+                
+                <br>
+                <table>
+                    <tr>
+                        <th colspan="3"><?php echo $this->Form->input('cliente_id'); ?></th>
+                    </tr>
+                    <tr>
+                        <th><?php echo $this->Form->input('banco_id'); ?></th>
+                        <th><?php echo $this->Form->input('numerodecuenta'); ?></th>
+                        <th><?php echo $this->Form->input('numerodecheque'); ?></th>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </table>
 	<?php
-		echo $this->Form->input('id');
+		/*echo $this->Form->input('id');
 		echo $this->Form->input('banco_id');
 		echo $this->Form->input('cliente_id');
 		echo $this->Form->input('numerodecuenta');
-		echo $this->Form->input('numerodecheque');
+		echo $this->Form->input('numerodecheque');*/
 		echo $this->Form->input('monto');
 		echo $this->Form->input('interese_id');
-		echo $this->Form->input('filename');
-		echo $this->Form->input('dir');
+		/*echo $this->Form->input('filename');
+		echo $this->Form->input('dir');*/
 		echo $this->Form->input('fecharecibido');
 		echo $this->Form->input('fechacobro');
 		echo $this->Form->input('dias');
-		echo $this->Form->input('cobrado');
+                echo $this->Form->input('cobrado',array('options'=>array(
+                               ''=>'Seleccione','1'=>'Por Cobrar','2'=>'Cobrado','0'=>'Devuelto'
+                ))); 
 		echo $this->Form->input('id_cheque');
 		echo $this->Form->input('user_id');
 	?>
