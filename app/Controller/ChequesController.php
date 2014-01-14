@@ -37,17 +37,8 @@ class ChequesController extends AppController {
                     if($this->data['Cheque']['selector']=="1"){
                         $valor = $this->data['search_text1'];
                         debug($valor);
-                        $busca=$this->Cheque->find('all', array('or' => 
-                            array('Cheque.numerodecheque LIKE' => '%'.$valor.'%',
-                            'Cheque.numerodecuenta LIKE' => '%'.$valor.'%',
-                            'Cheque1.numerodecheque LIKE' => '%'.$valor.'%',
-                            'Cliente.cedula LIKE'=> '%'.$valor.'%',
-                            'Banco.codigo LIKE'=>'%'.$valor.'%',
-                           'Cliente.nombre LIKE'=>'%'.$valor.'%',
-                            'Cliente.apellido LIKE'=>'%'.$valor.'%',
-                           'Cliente.apodo LIKE'=>'%'.$valor.'%'
-                            )));
-                        debug($busca);
+                        
+                        #debug($busca);
                          $this->set('cheques',  
 
                         $this->paginate('Cheque', array('or' => 
@@ -59,7 +50,7 @@ class ChequesController extends AppController {
                            'Cliente.nombre LIKE'=>'%'.$valor.'%',
                             'Cliente.apellido LIKE'=>'%'.$valor.'%',
                            'Cliente.apodo LIKE'=>'%'.$valor.'%'
-                            )))); 
+                            ),'and'=>array()))); 
                     }
                 else{
                     debug($this->data);
@@ -71,12 +62,10 @@ class ChequesController extends AppController {
                     $this->set('cheques', $this->paginate('Cheque',
                                 array('or'=>array(array('Cheque.cobrado'=>'1'),
                                     array('Cheque.cobrado'=>'0')))));
+                     $this->set(compact('sumas'));
                   }
-	 	$this->set('cheques', $this->paginate('Cheque',
-                                array('or'=>array(array('Cheque.cobrado'=>'1'),
-                                    array('Cheque.cobrado'=>'0')))));
-                
-                $this->set(compact('sumas'));
+	 	
+               
 	}
         public function index2() {
                 $this->Cheque->recursive = 2;
