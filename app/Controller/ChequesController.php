@@ -50,7 +50,8 @@ class ChequesController extends AppController {
                            'Cliente.nombre LIKE'=>'%'.$valor.'%',
                             'Cliente.apellido LIKE'=>'%'.$valor.'%',
                            'Cliente.apodo LIKE'=>'%'.$valor.'%'
-                            ),'and'=>array()))); 
+                            ),'and'=>array('or'=>array(array('Cheque.cobrado'=>'1'),
+                                    array('Cheque.cobrado'=>'0')))))); 
                     }
                 else{
                     debug($this->data);
