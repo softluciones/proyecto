@@ -97,7 +97,7 @@
 <div class="actions">
 	<h3><?php echo __('Acciones'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('Edit Cheque'), array('action' => 'edit', $cheque['Cheque']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Editar Cheque'), array('action' => 'edit/'.$cheque['Cheque']['cobrado'], $cheque['Cheque']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Cheque'), array('action' => 'delete', $cheque['Cheque']['id']), null, __('Are you sure you want to delete # %s?', $cheque['Cheque']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Cheques'), array('action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Cheque'), array('action' => 'add')); ?> </li>
@@ -338,7 +338,7 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Pago'), array('controller' => 'pagos', 'action' => 'add/'.$cheque['Cheque']['id'].'/1/'.$cheque['Cheque']['cobrado'],$cheque['Cliente']['id'])); ?> </li>
+			<li><?php echo $this->Html->link(__('Nuevo Pago'), array('controller' => 'pagos', 'action' => 'add/'.$cheque['Cheque']['id'].'/1/'.$cheque['Cheque']['cobrado'],$cheque['Cliente']['id'])); ?> </li>
 		</ul>
 	</div>
 </div>
