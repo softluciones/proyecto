@@ -94,16 +94,16 @@ class PagosController extends AppController {
                     $clientes = $this->Pago->Cliente->find('list');
                     $cheques = $this->Pago->Cheque->find('list');
                 }else{
-                    $id=  $this->params['pass'][0];
-                    $clientee=  $this->params['pass'][3];
+                    $cheq=$this->params['pass'][0];
                     $otro=$this->params['pass'][1];
                     $debo=$this->params['pass'][2];
+                    $clie=$this->params['pass'][3];
                     #$monto= $this->params['pass'][2];
                     
-                    $conditions=array('Cliente.id'=>$clientee);
+                    $conditions=array('Cliente.id'=>$clie);
          	    $clientes = $this->Pago->Cliente->find('list',array('fields'=>array('id','nombres'),
                                                                                     'conditions'=>$conditions));
-                    $conditions=array('Cheque.id'=>$id);
+                    $conditions=array('Cheque.id'=>$cheq);
          	    $cheques = $this->Pago->Cheque->find('list',array('fields'=>array('id','numerodecheque'),
                                                                                     'conditions'=>$conditions));
                    
@@ -115,7 +115,7 @@ class PagosController extends AppController {
                 $x=$this->Pago->query("select id, username from users where id=".$this->Auth->user('id')."");
                 
                 $users=array($x[0]['users']['id']=>$x[0]['users']['username']);
-		$this->set(compact('otro','clientes', 'chequeinterese', 'cheques', 'chequeEstadocheques', 'tipopagos', 'pagoterceros', 'users'));
+		$this->set(compact('debo','otro','clientes', 'chequeinterese', 'cheques', 'chequeEstadocheques', 'tipopagos', 'pagoterceros', 'users'));
 	}
 
 /**

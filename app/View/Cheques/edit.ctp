@@ -11,7 +11,10 @@ $("#datepicker1").datepicker();
   });
   </script>
 <div class="cheques form">
-<?php echo $this->Form->create('Cheque'); ?>
+<?php echo $this->Form->create('Cheque');
+
+echo $this->Form->input('id',array('type'=>'hidden'));
+?>
 	<fieldset>
 		<legend><?php echo __('Editar Cheque'); ?></legend>
                 
@@ -62,7 +65,11 @@ $("#datepicker1").datepicker();
 		
 	?>
 	<?php
+<<<<<<< HEAD
 		/*echo $this->Form->input('id');
+=======
+		/*
+>>>>>>> origin/jose
 		echo $this->Form->input('banco_id');
 		echo $this->Form->input('cliente_id');
 		echo $this->Form->input('numerodecuenta');

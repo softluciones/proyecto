@@ -11,9 +11,19 @@
                 <th></th>
             </tr>
             <tr>
-                <th><?php echo $this->Form->input('edodeuda',array('options'=>array(''=>'Seleccione',
-                                                                                     0=>'Abono al Cliente (Le Debo)',
-                                                                                     1=>'Abono del Cliente (Nos Debe)'))); ?></th>
+                
+                <?php $options=array(''=>'Seleccione',
+                                    0=>'Abono al Cliente (Le Debo)',
+                                    1=>'Abono del Cliente (Nos Debe)'); 
+                    if($debo==0){  
+                        $debo=1;
+                        $selected=array($debo);
+                    }else{
+                        $debo=0;
+                        $selected=array($debo);
+                    }
+                ?>
+                <th><?php echo $this->Form->input('edodeuda',array('options'=>$options,'selected'=>$selected)); ?></th>
                 <th><?php echo $this->Form->input('pagointerese_deuda',array('options'=>array(''=>'Le debemos al cliente',
                                                                                                1=>'Abono a deuda',
                                                                                                2=>'Abono a intereses'))); ?></th>
