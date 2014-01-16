@@ -73,6 +73,7 @@ $("#datepicker").datepicker();
     
 
     </div> 
+       <?php if($yabusco==2 || $yabusco==0){ ?>
     <div id="search_box"> 
     <div style="float:left; width:100%; " id="fecha1">
     <?php 
@@ -92,6 +93,30 @@ echo $this->Form->label('Búsqueda') ?>
 </div> 
 
 </div> 
+       <?php }else{
+           
+           ?>
+       <div id="search_box"> 
+    <div style="float:left; width:100%; display: none;" id="fecha1">
+    <?php 
+
+echo $this->Form->label('Búsqueda por fecha') ?>
+<?php echo $this->Form->input('search_text', array('id'=>'datepicker','style' => 'width: 80%;', 'div'=> false,'label' => false,
+                                                    'placeholder'=>'Haz click aquí','readonly'=>'readonly')); ?> 
+<?php echo $this->Form->end('Buscar'); ?>      
+</div> 
+<div style="float:left; width:100%; " id="texto">
+    <?php 
+
+echo $this->Form->label('Búsqueda') ?>
+<?php echo $this->Form->input('search_text1', array('style' => 'width:80%;', 'div'=> false,'label' => false,
+                                                    'placeholder'=>'Ingrese Nro. cheque o banco o cliente, etc...  ')); ?> 
+<?php echo $this->Form->end('Buscar'); ?>      
+</div> 
+
+</div> 
+       <?php
+       } ?>
     </div>
 </form>
 
@@ -219,8 +244,7 @@ echo $this->Form->label('Búsqueda') ?>
         foreach ($cheques as $cheque): ?>
 	<?php 
 
-
-                
+#debug($cheque);
                 $fecha1=$cheque['Cheque']['fechacobro'];
                 $fecha2=date('Y-m-d');
                 //debug($fecha1);
@@ -322,7 +346,7 @@ echo $this->Form->label('Búsqueda') ?>
                                 else
                                     echo h('Devuelto');
                                     ?>&nbsp;</td>
-		<td><?php echo h($cheque['User']['Estadocheque']['0']['nomenclatura']); ?>&nbsp;</td>
+		<td><?php echo h($cheque['ChequeEstadocheque']['0']['Estadocheque']['nomenclatura']); ?>&nbsp;</td>
                 <td><?php echo h($cheque['Cheque1']['numerodecheque']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($cheque['User']['username'], array('controller' => 'users', 'action' => 'view', $cheque['User']['id'])); ?>
@@ -409,7 +433,9 @@ echo $this->Form->label('Búsqueda') ?>
                                 else
                                     echo h('Devuelto');
                                     ?>&nbsp;</td>
-		<td><?php echo h($cheque['User']['Estadocheque']['0']['nomenclatura']); ?>&nbsp;</td>
+		<td><?php
+                
+                echo h($cheque['ChequeEstadocheque']['0']['Estadocheque']['nomenclatura']); ?>&nbsp;</td>
                 <td><?php echo h($cheque['Cheque1']['numerodecheque']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($cheque['User']['username'], array('controller' => 'users', 'action' => 'view', $cheque['User']['id'])); ?>
@@ -494,8 +520,9 @@ echo $this->Form->label('Búsqueda') ?>
                                 else
                                     echo h('Devuelto');
                                     ?>&nbsp;</td>
-		<td><?php echo h($cheque['User']['Estadocheque']['0']['nomenclatura']);
-                //asd?>&nbsp;</td>
+
+		<td><?php echo h($cheque['ChequeEstadocheque']['0']['Estadocheque']['nomenclatura']); ?>&nbsp;</td>
+
                 <td><?php echo h($cheque['Cheque1']['numerodecheque']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($cheque['User']['username'], array('controller' => 'users', 'action' => 'view', $cheque['User']['id'])); ?>
@@ -582,7 +609,7 @@ echo $this->Form->label('Búsqueda') ?>
                                 else
                                     echo h('Devuelto');
                                     ?>&nbsp;</td>
-		<td><?php echo h($cheque['User']['Estadocheque']['0']['nomenclatura']); ?>&nbsp;</td>
+		<td><?php echo h($cheque['ChequeEstadocheque']['0']['Estadocheque']['nomenclatura']); ?>&nbsp;</td>
                 <td><?php echo h($cheque['Cheque1']['numerodecheque']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($cheque['User']['username'], array('controller' => 'users', 'action' => 'view', $cheque['User']['id'])); ?>

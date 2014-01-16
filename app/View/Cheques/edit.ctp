@@ -65,7 +65,7 @@ echo $this->Form->input('id',array('type'=>'hidden'));
 		
 	?>
 	<?php
-		/*
+/*
 		echo $this->Form->input('banco_id');
 		echo $this->Form->input('cliente_id');
 		echo $this->Form->input('numerodecuenta');

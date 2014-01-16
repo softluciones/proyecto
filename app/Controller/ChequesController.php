@@ -36,9 +36,8 @@ class ChequesController extends AppController {
                     
                     if($this->data['Cheque']['selector']=="1"){
                         $valor = $this->data['search_text1'];
-                        debug($valor);
-                        
-                        #debug($busca);
+                       $yabusco=1;
+                       $this->request->data['search_text1']='';
                          $this->set('cheques',  
 
                         $this->paginate('Cheque', array('or' => 
@@ -50,19 +49,38 @@ class ChequesController extends AppController {
                            'Cliente.nombre LIKE'=>'%'.$valor.'%',
                             'Cliente.apellido LIKE'=>'%'.$valor.'%',
                            'Cliente.apodo LIKE'=>'%'.$valor.'%'
-                            ),'and'=>array()))); 
+                            ),'and'=>array('or'=>array(array('Cheque.cobrado'=>'1'),
+                                    array('Cheque.cobrado'=>'0')))))); 
+                         $this->set(compact('yabusco'));
                     }
                 else{
-                    debug($this->data);
                     
+                    $yabusco=0;
+                    if(!$this->data['Cheque']['search_text']==''){
+                        
+                        $fecha = new DateTime($this->data['Cheque']['search_text']);
+                        $fecha = $fecha->format('Y-m-d');
+                        $this->request->data['Cheque']['search_text']='';
+                        $this->set('cheques',$this->paginate('Cheque', array('or' => 
+                            array('DATE_FORMAT(Cheque.fechacobro,"%Y-%m-%d") LIKE' => '%'.$fecha.'%'
+                            ),'and'=>array('or'=>array(array('Cheque.cobrado'=>'1'),
+                                    array('Cheque.cobrado'=>'0')))))); 
+                        $this->set(compact('yabusco'));
+                    }
+                    else{
+                         $this->set('cheques', $this->paginate('Cheque',
+                                array('or'=>array(array('Cheque.cobrado'=>'1'),
+                                    array('Cheque.cobrado'=>'0')))));
+                     $this->set(compact('sumas','yabusco'));
+                    }
                 }
                  
                   }else{
-                      
+                      $yabusco=2;
                     $this->set('cheques', $this->paginate('Cheque',
                                 array('or'=>array(array('Cheque.cobrado'=>'1'),
                                     array('Cheque.cobrado'=>'0')))));
-                     $this->set(compact('sumas'));
+                     $this->set(compact('sumas','yabusco'));
                   }
 	 	
                
@@ -357,7 +375,7 @@ class ChequesController extends AppController {
                 
                 $this->request->data['Chequeinterese']['user_id'] = $this->Auth->user('id');
                 $this->request->data['Solointerese']['cheque_id']=$this->request->data['Chequeinterese']['cheque_id'] = $id;
-                $this->request->data['Solointerese']['monto']=$this->request->data['Chequeinterese']['montocheque'] = $this->request->data['Cheque']['monto'];    
+                $this->request->data['Chequeinterese']['montocheque'] = $this->request->data['Cheque']['monto'];    
                 $this->request->data['Chequeinterese']['estadocheque'] = $this->request->data['Cheque']['cobrado']; 
                  
                  
@@ -403,10 +421,10 @@ class ChequesController extends AppController {
                 
                 $this->Cheque->Chequeinterese->save($this->request->data);
                 $insert="INSERT INTO 
-                     solointereses (monto,montointereses,
+                     solointereses (montointereses,
                                     cheque_id,
                                     fecha)
-                     VALUES(".$this->request->data['Solointerese']['monto'].",".$this->request->data['Solointerese']['montointereses'].",
+                     VALUES(".$this->request->data['Solointerese']['montointereses'].",
                             ".$this->request->data['Solointerese']['cheque_id'].",
                             NOW())";
             $this->Cheque->query($insert);
@@ -491,7 +509,7 @@ class ChequesController extends AppController {
                                   $p++;
                                 $this->request->data['Solointerese']['montointereses']=$p;
                                 $this->request->data['Chequeinterese']['montodescuentointeres'] = $p*$y[0]['cheques']['dias'];
-                                $this->request->data['Chequeinterese']['montoentregado']=$this->request->data['Cheque']['monto']-($p*$y[0]['cheques']['dias']);
+                                $this->request->data['Chequeinterese']['montoentregado']=$this->request->data['Cheque']['monto']-$p;
                             }
 
                             $sql="delete from chequeinterese where cheque_id=".$id;
