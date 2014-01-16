@@ -13,7 +13,12 @@ class ChequesController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	var $paginate = array(
+                'limit' => 10,
+                'order' => array(
+                'Cheque.fechacobro' => 'DESC','Cheque.fechacobro' => 'DESC',
+                )
+              ); 
 
 /**
  * index method

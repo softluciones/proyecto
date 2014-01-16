@@ -13,7 +13,12 @@ class ChequeEstadochequesController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	var $paginate = array(
+                'limit' => 10,
+                'order' => array(
+                'ChequeEstadocheque.created' => 'DESC',
+                )
+              ); 
 
 /**
  * index method
@@ -23,7 +28,7 @@ class ChequeEstadochequesController extends AppController {
 	public function index() {
              
 		$this->ChequeEstadocheque->recursive = 0;
-		$this->set('chequeEstadocheques', $this->Paginator->paginate());
+		$this->set('chequeEstadocheques', $this->paginate());
 	}
 
 /**
