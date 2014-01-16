@@ -244,8 +244,7 @@ echo $this->Form->label('Búsqueda') ?>
         foreach ($cheques as $cheque): ?>
 	<?php 
 
-
-                
+#debug($cheque);
                 $fecha1=$cheque['Cheque']['fechacobro'];
                 $fecha2=date('Y-m-d');
                 //debug($fecha1);
@@ -347,7 +346,7 @@ echo $this->Form->label('Búsqueda') ?>
                                 else
                                     echo h('Devuelto');
                                     ?>&nbsp;</td>
-		<td><?php echo h($cheque['User']['Estadocheque']['0']['nomenclatura']); ?>&nbsp;</td>
+		<td><?php echo h($cheque['ChequeEstadocheque']['0']['Estadocheque']['nomenclatura']); ?>&nbsp;</td>
                 <td><?php echo h($cheque['Cheque1']['numerodecheque']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($cheque['User']['username'], array('controller' => 'users', 'action' => 'view', $cheque['User']['id'])); ?>
@@ -434,7 +433,9 @@ echo $this->Form->label('Búsqueda') ?>
                                 else
                                     echo h('Devuelto');
                                     ?>&nbsp;</td>
-		<td><?php echo h($cheque['User']['Estadocheque']['0']['nomenclatura']); ?>&nbsp;</td>
+		<td><?php
+                
+                echo h($cheque['ChequeEstadocheque']['0']['Estadocheque']['nomenclatura']); ?>&nbsp;</td>
                 <td><?php echo h($cheque['Cheque1']['numerodecheque']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($cheque['User']['username'], array('controller' => 'users', 'action' => 'view', $cheque['User']['id'])); ?>
@@ -519,8 +520,12 @@ echo $this->Form->label('Búsqueda') ?>
                                 else
                                     echo h('Devuelto');
                                     ?>&nbsp;</td>
+<<<<<<< HEAD
 		<td><?php echo h($cheque['User']['Estadocheque']['0']['nomenclatura']);
                 //asd?>&nbsp;</td>
+=======
+		<td><?php echo h($cheque['ChequeEstadocheque']['0']['Estadocheque']['nomenclatura']); ?>&nbsp;</td>
+>>>>>>> origin/Betmart
                 <td><?php echo h($cheque['Cheque1']['numerodecheque']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($cheque['User']['username'], array('controller' => 'users', 'action' => 'view', $cheque['User']['id'])); ?>
@@ -607,7 +612,7 @@ echo $this->Form->label('Búsqueda') ?>
                                 else
                                     echo h('Devuelto');
                                     ?>&nbsp;</td>
-		<td><?php echo h($cheque['User']['Estadocheque']['0']['nomenclatura']); ?>&nbsp;</td>
+		<td><?php echo h($cheque['ChequeEstadocheque']['0']['Estadocheque']['nomenclatura']); ?>&nbsp;</td>
                 <td><?php echo h($cheque['Cheque1']['numerodecheque']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($cheque['User']['username'], array('controller' => 'users', 'action' => 'view', $cheque['User']['id'])); ?>
