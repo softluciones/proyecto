@@ -375,7 +375,7 @@ class ChequesController extends AppController {
                 
                 $this->request->data['Chequeinterese']['user_id'] = $this->Auth->user('id');
                 $this->request->data['Solointerese']['cheque_id']=$this->request->data['Chequeinterese']['cheque_id'] = $id;
-                $this->request->data['Chequeinterese']['montocheque'] = $this->request->data['Cheque']['monto'];    
+                $this->request->data['Solointerese']['monto']=$this->request->data['Chequeinterese']['montocheque'] = $this->request->data['Cheque']['monto'];    
                 $this->request->data['Chequeinterese']['estadocheque'] = $this->request->data['Cheque']['cobrado']; 
                  
                  
@@ -421,10 +421,10 @@ class ChequesController extends AppController {
                 
                 $this->Cheque->Chequeinterese->save($this->request->data);
                 $insert="INSERT INTO 
-                     solointereses (montointereses,
+                     solointereses (monto,montointereses,
                                     cheque_id,
                                     fecha)
-                     VALUES(".$this->request->data['Solointerese']['montointereses'].",
+                     VALUES(".$this->request->data['Solointerese']['monto'].",".$this->request->data['Solointerese']['montointereses'].",
                             ".$this->request->data['Solointerese']['cheque_id'].",
                             NOW())";
             $this->Cheque->query($insert);
@@ -509,7 +509,7 @@ class ChequesController extends AppController {
                                   $p++;
                                 $this->request->data['Solointerese']['montointereses']=$p;
                                 $this->request->data['Chequeinterese']['montodescuentointeres'] = $p*$y[0]['cheques']['dias'];
-                                $this->request->data['Chequeinterese']['montoentregado']=$this->request->data['Cheque']['monto']-$p;
+                                $this->request->data['Chequeinterese']['montoentregado']=$this->request->data['Cheque']['monto']-($p*$y[0]['cheques']['dias']);
                             }
 
                             $sql="delete from chequeinterese where cheque_id=".$id;
