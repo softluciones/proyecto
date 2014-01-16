@@ -21,7 +21,7 @@ class ChequeEstadochequesController extends AppController {
  * @return void
  */
 	public function index() {
-                $_SESSION['varia']=1;
+             
 		$this->ChequeEstadocheque->recursive = 0;
 		$this->set('chequeEstadocheques', $this->Paginator->paginate());
 	}
@@ -34,7 +34,7 @@ class ChequeEstadochequesController extends AppController {
  * @return void
  */
 	public function view($id = null) {
-                $_SESSION['varia']=1;
+                
 		if (!$this->ChequeEstadocheque->exists($id)) {
 			throw new NotFoundException(__('Cheque estado cheque invalido'));
 		}
@@ -48,7 +48,8 @@ class ChequeEstadochequesController extends AppController {
  * @return void
  */
 	public function add($id=null) {
-                $_SESSION['varia']=1;
+             
+                
 		if ($this->request->is('post')) {
 			$this->ChequeEstadocheque->create();
 			if ($this->ChequeEstadocheque->save($this->request->data)) {
@@ -76,7 +77,7 @@ class ChequeEstadochequesController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
-                $_SESSION['varia']=1;
+               
             $this->ChequeEstadocheque->recursive=2;
 		if (!$this->ChequeEstadocheque->exists($id)) {
 			throw new NotFoundException(__('Invalido estado de cheque'));
@@ -111,7 +112,7 @@ class ChequeEstadochequesController extends AppController {
  * @return void
  */
 	public function delete($id = null) {
-                $_SESSION['varia']=1;
+               
 		$this->ChequeEstadocheque->id = $id;
 		if (!$this->ChequeEstadocheque->exists()) {
 			throw new NotFoundException(__('Cheque estado del cheque invalida'));
