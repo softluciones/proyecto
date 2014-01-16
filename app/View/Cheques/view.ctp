@@ -1,98 +1,42 @@
 <div class="cheques view">
 <h2><?php echo __('Cheque'); ?></h2>
-	<dl>
-		
-		
-		<dt><?php echo __('Banco'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($cheque['Banco']['codigo'], array('controller' => 'bancos', 'action' => 'view', $cheque['Banco']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Cliente'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($cheque['Cliente']['nombre'], array('controller' => 'clientes', 'action' => 'view', $cheque['Cliente']['id'])); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Created'); ?></dt>
-		<dd>
-			<?php echo h($cheque['Cheque']['created']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Modified'); ?></dt>
-		<dd>
-			<?php echo h($cheque['Cheque']['modified']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Numerodecuenta'); ?></dt>
-		<dd>
-			<?php echo h($cheque['Cheque']['numerodecuenta']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Numerodecheque'); ?></dt>
-		<dd>
-			<?php echo h($cheque['Cheque']['numerodecheque']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Monto'); ?></dt>
-		<dd>
-			<?php echo h($cheque['Cheque']['monto']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Interese'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($cheque['Interese']['rango'], array('controller' => 'interese', 'action' => 'view', $cheque['Interese']['id'])); ?>
-			&nbsp;
-		</dd>
-                <?php if($cheque['Cheque']['filename']!=null){ ?>
-		<dt><?php echo __('imagen'); ?></dt>
-		<dd>
-			<?php 
-                        
-                         echo $this->Html->image('uploads/cheque/filename/'.$cheque['Cheque']['filename'],array('width'=>500,'heigth'=>400)); ?>
-			&nbsp;
-		</dd>
-                <?php } ?>
-		<dt><?php echo __('Fecharecibido'); ?></dt>
-		<dd>
-			<?php echo h($cheque['Cheque']['fecharecibido']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Fechacobro'); ?></dt>
-		<dd>
-			<?php echo h($cheque['Cheque']['fechacobro']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Dias'); ?></dt>
-		<dd>
-			<?php echo h($cheque['Cheque']['dias']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Cobrado'); ?></dt>
-		<dd>
-			<?php  if($cheque['Cheque']['cobrado']==1)
+	
+<table>
+    <tr>
+        <th><?php echo __('Banco: '); echo $this->Html->link($cheque['Banco']['codigo'], array('controller' => 'bancos', 'action' => 'view', $cheque['Banco']['id'])); ?></th>
+        <th><?php echo __('Cliente: '); echo $this->Html->link($cheque['Cliente']['nombre'], array('controller' => 'clientes', 'action' => 'view', $cheque['Cliente']['id'])); ?></th>
+        <th><?php echo __('Numerodecuenta: '); echo h($cheque['Cheque']['numerodecuenta']); ?></th>
+    </tr>
+    <tr>
+        <th><?php echo __('Numerodecheque: '); echo h($cheque['Cheque']['numerodecheque']); ?></th>
+        <th><?php echo __('Numerodecheque: '); echo h($cheque['Cheque']['numerodecheque']); ?></th>
+        <th><?php echo __('Monto: '); echo h($cheque['Cheque']['monto']); ?></th>
+    </tr>
+    <tr>
+        <th><?php echo __('Intereses: '); echo $this->Html->link($cheque['Interese']['rango'], array('controller' => 'interese', 'action' => 'view', $cheque['Interese']['id'])); ?></th>
+        <th><?php echo __('Fecharecibido: '); echo h($cheque['Cheque']['fecharecibido']); ?></th>
+        <th><?php echo __('Fechacobro: '); echo h($cheque['Cheque']['fechacobro']); ?></th>
+    </tr>
+    <tr>
+        <th colspan="3"><div align="center"><?php echo __('imagen: '); ?><br><?php echo $this->Html->image('uploads/cheque/filename/'.$cheque['Cheque']['filename'],array('width'=>500,'heigth'=>400)); ?></div></th>
+    </tr>
+    <tr>
+        <th><?php echo __('Modificado: '); echo h($cheque['Cheque']['modified']); ?></th>
+        <th><?php echo __('Dias: '); echo h($cheque['Cheque']['dias']); ?></th>
+        <th><?php echo __('Modo cheque: '); if($cheque['Cheque']['cobrado']==1)
                                 echo h('Por Cobrar');
                             else
                                 if($cheque['Cheque']['cobrado']==2)
                                     echo h('Cobrado');
                                 else
-                                    echo h('Devuelto');; ?>
-			&nbsp;
-		</dd>
-                <?php if($cheque['Cheque']['cheque_id']!=null){?>
-		<dt><?php echo __('Cheque a Pagar'); ?></dt>
-		<dd>
-			<?php 
-                         echo $this->Html->link($cheque['Cheque']['numerodecheque'], array('controller' => 'cheques', 'action' => 'view', $cheque['Cheque']['id'])); 
-                        ?>
-			&nbsp;
-		</dd>
-                <?php } ?>
-		<dt><?php echo __('Usuario'); ?></dt>
-		<dd>
-			<?php echo $this->Html->link($cheque['User']['username'], array('controller' => 'users', 'action' => 'view', $cheque['User']['id'])); ?>
-			&nbsp;
-		</dd>
-	</dl>
+                                    echo h('Devuelto'); ?></th>
+    </tr>
+    <tr>
+        <th><?php if($cheque['Cheque']['cheque_id']!=null){ echo __('Cheque a Pagar: '); echo $this->Html->link($cheque['Cheque']['numerodecheque'], array('controller' => 'cheques', 'action' => 'view', $cheque['Cheque']['id'])); } ?></th>
+        <th><?php echo __('Usuario: '); echo $this->Html->link($cheque['User']['username'], array('controller' => 'users', 'action' => 'view', $cheque['User']['id'])); ?></th>
+        <th></th>
+    </tr>
+</table>
 </div>
 <div class="actions">
 	<h3><?php echo __('Acciones'); ?></h3>
@@ -285,7 +229,7 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Gestiondecobranza'), array('controller' => 'gestiondecobranzas', 'action' => 'add')); ?> </li>
+			<li><?php echo $this->Html->link(__('Nueva Gestion de cobranza'), array('controller' => 'gestiondecobranzas', 'action' => 'add',$cheque['Cheque']['id'])); ?> </li>
 		</ul>
 	</div>
 </div>
