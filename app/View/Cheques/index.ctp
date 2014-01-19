@@ -525,9 +525,10 @@ echo $this->Form->label('Búsqueda') ?>
                 
                 $cuantos = count($cheque['ChequeEstadocheque']);
                 if($cuantos>0){
-                echo h($cheque['ChequeEstadocheque'][$cuantos-1]['Estadocheque']['nomenclatura']); 
+                    echo h($cheque['ChequeEstadocheque'][$cuantos-1]['Estadocheque']['nomenclatura']); 
                 
-                }?>&nbsp;</td>
+                }
+                ?>&nbsp;</td>
                 
                 <td><?php echo h($cheque['Cheque1']['numerodecheque']); ?>&nbsp;</td>
 		<td>
