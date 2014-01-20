@@ -131,20 +131,20 @@ echo $this->Form->label('Búsqueda') ?>
             <th>Monto total cheques a cobrar</th>
         </tr>
         </thead>
-        <tr>
-            <th>Monto por cobrar</th>       
-            <th><div style="float: right"><?php if(!empty($sumas[0])){
+        <tr style="background:#ffffff; color: white;">
+            <td>Monto por cobrar</td>       
+            <td><div style="float: right"><?php if(!empty($sumas[0])){
                         if($sumas[0]['cheques']['cobrado']==1){    
                              echo h(number_format(floatval($sumas[0][0]['sumato']),2,',','.'))." Bs";
                         }else{
                            echo h(number_format(floatval($sumas[1][0]['sumato']),2,',','.'))." Bs";
                         }}else{
                             echo h(number_format(floatval(0),2,',','.'))." Bs";
-                        }?></div></th>
+                        }?></div></td>
         </tr>
-        <tr>
-            <th>Cheques Devueltos</th>
-            <th><div style="float: right">
+        <tr style="background:#ffffff; color: white;">
+            <td>Cheques Devueltos</td>
+            <td><div style="float: right">
                 <?php if(!empty($sumas[1])){
                         if($sumas[1]['cheques']['cobrado']==0){    
                              echo h(number_format(floatval($sumas[1][0]['sumato']),2,',','.'))." Bs";
@@ -154,11 +154,11 @@ echo $this->Form->label('Búsqueda') ?>
                         
                         }else{
                             echo h(number_format(floatval(0),2,',','.'))." Bs";
-                        }?></div></th>
+                        }?></div></td>
         </tr>
-        <tr>
-            <th>Total de "Por Cobrar y Devueltos":</th>
-            <th><div style="float: right">
+        <tr style="background:#ffffff; color: white;">
+            <td>Total de "Por Cobrar y Devueltos":</td>
+            <td><div style="float: right">
                 <?php 
                 if(empty($sumas[0]))
                     echo h(number_format(floatval($sumas[1][0]['sumato']),2,',','.'))." Bs";
@@ -167,7 +167,7 @@ echo $this->Form->label('Búsqueda') ?>
                         echo h(number_format(floatval($sumas[0][0]['sumato']),2,',','.'))." Bs";
                     else
                         echo h(number_format(floatval($sumas[1][0]['sumato']+$sumas[0][0]['sumato']),2,',','.'))." Bs";
-                ?></div></th>
+                ?></div></td>
         </tr>
     </table>
     <?php } 
