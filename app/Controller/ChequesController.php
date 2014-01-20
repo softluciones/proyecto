@@ -36,7 +36,7 @@ class ChequesController extends AppController {
                                             ORDER BY COBRADO");
 
               //debug($sumas);
-               //jose y bet son novios ahora yo jose
+               //jose y bet son novios ahora yo jose se
                 if($this->data){  
                     
                     if($this->data['Cheque']['selector']=="1"){
