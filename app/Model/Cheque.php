@@ -25,7 +25,7 @@ class Cheque extends AppModel {
             'MeioUpload' => array('filename')
         );
         public $virtualFields = array(
-            'chequess'=>'Cheque.numerodecheque'
+            'chequess'=>'Cheque.numerodecheque',
         );
 
 /**
