@@ -233,6 +233,7 @@ echo $this->Form->label('Búsqueda') ?>
 #debug($cheque);
                 $fecha1=$cheque['Cheque']['fechacobro'];
                 $fecha2=date('Y-m-d');
+                
                 //debug($fecha1);
                 #debug($fecha2);
                 $y=new DateTime($fecha1);
