@@ -37,35 +37,6 @@
         <th></th>
     </tr>
 </table>
-</div>
-<div class="actions">
-	<h3><?php echo __('Acciones'); ?></h3>
-	<ul>
-		<li><?php  if($cheque['Cheque']['cobrado']==1)
-                            echo $this->Html->link(__('Editar Cheque'), array('action' => 'edit', $cheque['Cheque']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Cheque'), array('action' => 'delete', $cheque['Cheque']['id']), null, __('Are you sure you want to delete # %s?', $cheque['Cheque']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('List Cheques'), array('action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Cheque'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Bancos'), array('controller' => 'bancos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Banco'), array('controller' => 'bancos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Clientes'), array('controller' => 'clientes', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Cliente'), array('controller' => 'clientes', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Interese'), array('controller' => 'interese', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Interese'), array('controller' => 'interese', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Cheque Estadocheques'), array('controller' => 'cheque_estadocheques', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Cheque Estadocheque'), array('controller' => 'cheque_estadocheques', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Chequeinterese'), array('controller' => 'chequeinterese', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Chequeinterese'), array('controller' => 'chequeinterese', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Gestiondecobranzas'), array('controller' => 'gestiondecobranzas', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Gestiondecobranza'), array('controller' => 'gestiondecobranzas', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Pagos'), array('controller' => 'pagos', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Pago'), array('controller' => 'pagos', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Pagoterceros'), array('controller' => 'pagoterceros', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Pagotercero'), array('controller' => 'pagoterceros', 'action' => 'add')); ?> </li>
-	</ul>
-</div>
 
 <div class="related">
 	<h3><?php echo __('Pagos con Cheque'); 
@@ -133,9 +104,9 @@
 			<td><?php echo $chequeEstadocheque['estadocheque_id']; ?></td>
 			<td><?php echo $chequeEstadocheque['user_id']; ?></td>
 			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'cheque_estadocheques', 'action' => 'view', $chequeEstadocheque['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'cheque_estadocheques', 'action' => 'edit', $chequeEstadocheque['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'cheque_estadocheques', 'action' => 'delete', $chequeEstadocheque['id']), null, __('Are you sure you want to delete # %s?', $chequeEstadocheque['id'])); ?>
+				<?php echo $this->Html->link(__('View'), array('controller' => 'ChequeEstadocheques', 'action' => 'view', $chequeEstadocheque['id'])); ?>
+				<?php echo $this->Html->link(__('Edit'), array('controller' => 'ChequeEstadocheques', 'action' => 'edit', $chequeEstadocheque['id'])); ?>
+				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'ChequeEstadocheques', 'action' => 'delete', $chequeEstadocheque['id']), null, __('Are you sure you want to delete # %s?', $chequeEstadocheque['id'])); ?>
 			</td>
 		</tr>
 	<?php endforeach; ?>
@@ -144,7 +115,7 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Cheque Estadocheque'), array('controller' => 'cheque_estadocheques', 'action' => 'add',$chequeEstadocheque['cheque_id'])); ?> </li>
+			<li><?php echo $this->Html->link(__('New Cheque Estadocheque'), array('controller' => 'ChequeEstadocheques', 'action' => 'add',$chequeEstadocheque['cheque_id'])); ?> </li>
 		</ul>
 	</div>
 </div>
@@ -289,20 +260,20 @@
 </div>
 <?php } ?>
 <div class="related">
-	<h3><?php echo __('Related Pagoterceros'); ?></h3>
+	<h3><?php echo __('Lista de Pago terceros'); ?></h3>
 	<?php if (!empty($cheque['Pagotercero'])): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Created'); ?></th>
+		<th><?php echo __('Fecha creación'); ?></th>
 		<th><?php echo __('Dia'); ?></th>
 		<th><?php echo __('Monto'); ?></th>
 		<th><?php echo __('Conceptode'); ?></th>
-		<th><?php echo __('Cliente Id'); ?></th>
-		<th><?php echo __('Cliente Id1'); ?></th>
+		<th><?php echo __('Origen'); ?></th>
+		<th><?php echo __('Destino'); ?></th>
 		<th><?php echo __('Cheque Id'); ?></th>
 		<th><?php echo __('User Id'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
+		<th class="actions"><?php echo __('Acciones'); ?></th>
 	</tr>
 	<?php foreach ($cheque['Pagotercero'] as $pagotercero): ?>
 		<tr>
@@ -327,7 +298,26 @@
 
 	<div class="actions">
 		<ul>
-			<li><?php echo $this->Html->link(__('New Pagotercero'), array('controller' => 'pagoterceros', 'action' => 'add/'.$cheque['Cheque']['id'],$cheque['Cliente']['id'])); ?> </li>
+			<li><?php echo $this->Html->link(__('Nuevo Pago terceros'), array('controller' => 'pagoterceros', 'action' => 'add/'.$cheque['Cheque']['id'],$cheque['Cliente']['id'])); ?> </li>
 		</ul>
 	</div>
 </div>
+</div>
+<div class="actions">
+	<h3><?php echo __('Acciones'); ?></h3>
+	<ul>
+		<li><?php  if($cheque['Cheque']['cobrado']==1)
+                            echo $this->Html->link(__('Editar Cheque'), array('action' => 'edit', $cheque['Cheque']['id'])); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Borrar Cheque'), array('action' => 'delete', $cheque['Cheque']['id']), null, __('Esta seguro que desea Borrar este registro # %s?', $cheque['Cheque']['id'])); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista Cheques'), array('action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nuevo Cheque'), array('action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista Bancos'), array('controller' => 'bancos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nuevo Banco'), array('controller' => 'bancos', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista Clientes'), array('controller' => 'clientes', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nuevo Cliente'), array('controller' => 'clientes', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista Intereses'), array('controller' => 'interese', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nuevo Intereses'), array('controller' => 'interese', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nuevo Chequeinterese'), array('controller' => 'chequeinterese', 'action' => 'add')); ?> </li>
+	</ul>
+</div>
+

@@ -126,7 +126,7 @@ echo $this->Form->label('Búsqueda') ?>
     <h3>Monto a cobrar por cheques por cobrar y por cheques devueltos</h3>
     <table cellpadding="0" cellspacing="0" style="width: 100%;">
         <thead>
-        <tr style="background: #528CE0;">
+        <tr style="background: #528CE0;"><?php //azul ?>
             <th>Estado del cheque</th>
             <th>Monto total cheques a cobrar</th>
         </tr>
