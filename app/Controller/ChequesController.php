@@ -358,7 +358,8 @@ class ChequesController extends AppController {
                  
                  $dias=$this->request->data['Cheque']['dias']= 1;
                  $monto=$this->request->data['Cheque']['monto'] = intval($x[0]['chequeinterese']['montocheque'])+intval($x[0]['chequeinterese']['montodescuentointeres']);
-                
+                $this->request->data['Solointerese']['monto']=$monto;
+                 $this->request->data['Cheque']['modified']=date('Y-m-d H:i:s');
                  $que=$this->Cheque->save($this->request->data);
                   if(!$que){
                       $this->Cheque->query("UPDATE cheques SET cobrado=".$cobrado.", dias=".$dias.", 
@@ -426,10 +427,12 @@ class ChequesController extends AppController {
                 
                 $this->Cheque->Chequeinterese->save($this->request->data);
                 $insert="INSERT INTO 
-                     solointereses (montointereses,
+                     solointereses (monto,
+                                    montointereses,
                                     cheque_id,
                                     fecha)
-                     VALUES(".$this->request->data['Solointerese']['montointereses'].",
+                     VALUES(".$this->request->data['Solointerese']['monto'].",
+                            ".$this->request->data['Solointerese']['montointereses'].",
                             ".$this->request->data['Solointerese']['cheque_id'].",
                             NOW())";
             $this->Cheque->query($insert);

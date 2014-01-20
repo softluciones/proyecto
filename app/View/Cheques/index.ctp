@@ -54,7 +54,9 @@ $("#datepicker").datepicker();
      <?php echo $this->Form->create('Cheque', array('url' => array('action' => 'index'))); ?> 
    <div style="float:left;width:50%; ">
       <fieldset>
-<legend><?php echo __('Cheques ') ; ?>
+<legend><?php 
+#debug($cheques);
+echo __('Cheques ') ; ?>
 <?php  echo $this->Html->image("anade.fw.png", array("alt" => "Agregar Cheque",'width' => '20', 'heigth' => '20','title'=>'Agregar Cheque','url' => array('action' => 'add'))); ?></legend>
 </fieldset>	
    
@@ -197,7 +199,8 @@ echo $this->Form->label('Búsqueda') ?>
        ?>
 <h2 style="clear: both">
     <?php #debug($sumas); 
-            echo __('Cheques por cobrar y devueltos'); ?></h2>
+            echo __('Cheques por cobrar y devueltos '); echo $this->Html->image("actualizar.fw.png", array("alt" => "Agregar Cheque",'width' => '30', 'heigth' => '30','title'=>'Intereses a aumentar','url' => array('action' => 'index'))); ?></h2>
+        <?php   ?>
 	<table cellpadding="0" cellspacing="0" align="center" style="width:100%">
             <thead>
 	<tr>
@@ -772,7 +775,7 @@ echo $this->Form->label('Búsqueda') ?>
 		</td>
 		<td class="actions">
                     <?php 
-                                                echo $this->Html->image("devuelto.fw.png", array("alt" => "Devuelto",'width' => '18', 'heigth' => '18','title'=>'Devuelto','url' => array('action' => 'editadevuelto/'. $cheque['Cheque']['id'],0)));
+                                                #echo $this->Html->image("devuelto.fw.png", array("alt" => "Devuelto",'width' => '18', 'heigth' => '18','title'=>'Devuelto','url' => array('action' => 'editadevuelto/'. $cheque['Cheque']['id'],0)));
 			?>
 			<?php #echo $this->Html->link(__('Devuelto'), array('action' => 'editadevuelto/'. $cheque['Cheque']['id'],0)); ?>
                         <?php echo $this->Html->image("cobrado.fw.png", array("alt" => "Cobrado",'width' => '18', 'heigth' => '18','title'=>'Cobrado','url' => array('action' => 'editadevuelto/'. $cheque['Cheque']['id'],2)));
