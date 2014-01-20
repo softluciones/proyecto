@@ -73,6 +73,28 @@ class ChequeEstadochequesController extends AppController {
                 $users=array($x[0]['users']['id']=>$x[0]['users']['username']);
 		$this->set(compact('cheques', 'estadocheques', 'users'));
 	}
+        
+        public function add2($id=null) {
+             $id1=$this->params['pass'][1];
+                $id=$this->params['pass'][0];
+		if ($this->request->is('post')) {
+			$this->ChequeEstadocheque->create();
+			if ($this->ChequeEstadocheque->save($this->request->data)) {
+				$this->Session->setFlash(__('El cheque estado del cheque ha sido guardado.'));
+				return $this->redirect(array('controller'=>'cheques','action' => 'view',$id1));
+			} else {
+				$this->Session->setFlash(__('El cheque estado del cheque no ha sido guardado. Intentalo de nuevo'));
+			}
+		}
+                $conditions=array('Cheque.id'=>$id);
+		$cheques = $this->ChequeEstadocheque->Cheque->find('list',array('fields'=>array('id','chequess'),
+                                                                                    'conditions'=>$conditions));
+		$estadocheques = $this->ChequeEstadocheque->Estadocheque->find('list',array('fields'=>array('id','nombresss')));
+		$users = $this->ChequeEstadocheque->User->find('list');
+                $x=$this->ChequeEstadocheque->query("select id, username from users where id=".$this->Auth->user('id')."");                
+                $users=array($x[0]['users']['id']=>$x[0]['users']['username']);
+		$this->set(compact('cheques', 'estadocheques', 'users'));
+	}
 
 /**
  * edit method
