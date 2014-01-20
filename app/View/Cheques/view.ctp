@@ -5,23 +5,35 @@
     <tr>
         <th><?php echo __('Banco: '); echo $this->Html->link($cheque['Banco']['codigo'], array('controller' => 'bancos', 'action' => 'view', $cheque['Banco']['id'])); ?></th>
         <th><?php echo __('Cliente: '); echo $this->Html->link($cheque['Cliente']['nombre'], array('controller' => 'clientes', 'action' => 'view', $cheque['Cliente']['id'])); ?></th>
-        <th><?php echo __('Numerodecuenta: '); echo h($cheque['Cheque']['numerodecuenta']); ?></th>
+        <th><?php echo __('Numero de cuenta: '); echo h($cheque['Cheque']['numerodecuenta']); ?></th>
     </tr>
     <tr>
-        <th><?php echo __('Numerodecheque: '); echo h($cheque['Cheque']['numerodecheque']); ?></th>
-        <th><?php echo __('Numerodecheque: '); echo h($cheque['Cheque']['numerodecheque']); ?></th>
+        <th><?php echo __('Numero de cheque: '); echo h($cheque['Cheque']['numerodecheque']); ?></th>        
         <th><?php echo __('Monto: '); echo h($cheque['Cheque']['monto']); ?></th>
+         <th><?php echo __('Intereses: '); echo $this->Html->link($cheque['Interese']['rango'], array('controller' => 'interese', 'action' => 'view', $cheque['Interese']['id'])); ?></th>
+       
     </tr>
     <tr>
-        <th><?php echo __('Intereses: '); echo $this->Html->link($cheque['Interese']['rango'], array('controller' => 'interese', 'action' => 'view', $cheque['Interese']['id'])); ?></th>
-        <th><?php echo __('Fecharecibido: '); echo h($cheque['Cheque']['fecharecibido']); ?></th>
-        <th><?php echo __('Fechacobro: '); echo h($cheque['Cheque']['fechacobro']); ?></th>
+        <th><?php 
+        
+        $fecha1 = new Datetime($cheque['Cheque']['fecharecibido']);
+        $fecha1 = $fecha1->format('d-m-Y');
+        echo __('Fecha Recibido: '); echo $fecha1; ?></th>
+        <th colspan="2"><?php 
+        $fecha2 = new Datetime($cheque['Cheque']['fechacobro']);
+        $fecha2 = $fecha2->format('d-m-Y');
+        echo __('Fecha de Cobro: '); echo $fecha2;
+         ?></th>
     </tr>
     <tr>
-        <th colspan="3"><div align="center"><?php echo __('imagen: '); ?><br><?php echo $this->Html->image('uploads/cheque/filename/'.$cheque['Cheque']['filename'],array('width'=>500,'heigth'=>400)); ?></div></th>
+        <th colspan="3"><div align="center"><?php echo __('Imagen: '); ?><br><?php echo $this->Html->image('uploads/cheque/filename/'.$cheque['Cheque']['filename'],array('width'=>500,'heigth'=>400)); ?></div></th>
     </tr>
     <tr>
-        <th><?php echo __('Modificado: '); echo h($cheque['Cheque']['modified']); ?></th>
+        <th><?php 
+        $fecha2 = new Datetime($cheque['Cheque']['modified']);
+        $fecha2 = $fecha2->format('d-m-Y');
+        echo __('Fecha Modificación: '); echo $fecha2;
+         ?></th>
         <th><?php echo __('Dias: '); echo h($cheque['Cheque']['dias']); ?></th>
         <th><?php echo __('Modo cheque: '); if($cheque['Cheque']['cobrado']==1)
                                 echo h('Por Cobrar');
@@ -51,19 +63,22 @@
 		<th><?php echo __('Días'); ?></th>
 		<th><?php echo __('Interes'); ?></th>
 		<th><?php echo __('Monto'); ?></th>
-                <th><?php echo __('Interes'); ?></th>
-                 <th><?php echo __('Descontado'); ?></th>
+                 <th><?php echo __('Edo.'); ?></th>
                  <th><?php echo __('Fecha Recib.'); ?></th>
                  <th><?php echo __('Fecha Cobro'); ?></th>
 		<th class="actions"><?php echo __('Acciones'); ?></th>
 	</tr>
-	<?php foreach ($relacionados as $chequeEstadocheque): ?>
+	<?php 
+        debug($relacionados);
+        foreach ($relacionados as $chequeEstadocheque): ?>
 		<tr>
 			
-			<td><?php echo $chequeEstadocheque['created']; ?></td>
-			<td><?php echo $chequeEstadocheque['modified']; ?></td>
-			<td><?php echo $chequeEstadocheque['cheque_id']; ?></td>
-			<td><?php echo $chequeEstadocheque['estadocheque_id']; ?></td>
+			<td><?php echo $chequeEstadocheque['Banco']['nombre']; ?></td>
+			<td><?php echo $chequeEstadocheque['Cheque']['numerodecheque']; ?></td>
+			<td><?php echo $chequeEstadocheque['Cheque']['dias']; ?></td>
+			<td><?php echo $chequeEstadocheque['Interese']['rango']; ?></td>
+                        <td><?php echo $chequeEstadocheque['Cheque']['monto']; ?></td>
+                        <td><?php echo $chequeEstadocheque['Cheque']['monto']; ?></td>
 			<td><?php echo $chequeEstadocheque['user_id']; ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('View'), array('controller' => 'cheque_estadocheques', 'action' => 'view', $chequeEstadocheque['id'])); ?>
