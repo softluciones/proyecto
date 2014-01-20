@@ -3,7 +3,7 @@
 	
 <table>
     <thead>
-             <tr>
+       
                  <th colspan="3" style="background:#cccccc; height: 50px; font-size: 20px;">
          <div align="center"> Cheque</div>
                  </th>
@@ -59,10 +59,14 @@
 
     
     </br>
-<div class="related">
-	<h3><?php echo __('Pagos con Cheque'); 
-        
-         ?></h3>
+  
+<div class="box">
+  
+             <div class="title">        
+	<strong style="color:#333; font-size:14px;"><?php echo __('Pagos de Cheque');?></strong>
+                       </div>      
+    <div class="content pages">
+        <div class="row">
 <?php if(!empty($relacionados)): ?>
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
@@ -78,7 +82,7 @@
 		<th class="actions"><?php echo __('Acciones'); ?></th>
 	</tr>
 	<?php 
-        debug($relacionados);
+        //debug($relacionados);
         foreach ($relacionados as $chequeEstadocheque): ?>
 		<tr>
 			
@@ -96,19 +100,35 @@
 			</td>
 		</tr>
 	<?php endforeach; ?>
-	</table>
+	
 <?php endif; ?>
-
+</div>
+        
 	<div class="actions">
 		<ul>
 			<li><?php echo $this->Html->link(__('Nuevo Cheque'), array('action' => 'add2',$cheque['Cheque']['id'])); ?> </li>
 		</ul>
 	</div>
+             
+         </div>   
 </div>
+        
 </br>
-<div class="related">
-	<h3><?php echo __('Related Cheque Estadocheques'); ?></h3>
+<div class="box">
+    
+        
+	
+      <div class="title">        
+	<strong style="color:#333; font-size:14px;"><?php echo __('Estados del Cheque');?></strong>
+                       </div>      
+    <div class="content pages">
+        <div class="row">
+     
+  
+
+      
 	<?php if (!empty($cheque['ChequeEstadocheque'])): ?>
+         
 	<table cellpadding = "0" cellspacing = "0">
 	<tr>
 		<th><?php echo __('Id'); ?></th>
@@ -137,11 +157,14 @@
 	</table>
 <?php endif; ?>
 </br>
+</div>
 	<div class="actions">
 		<ul>
 			<li><?php echo $this->Html->link(__('Nuevo Edo. Cheque'), array('controller' => 'ChequeEstadocheques', 'action' => 'add',$chequeEstadocheque['cheque_id'])); ?> </li>
 		</ul>
 	</div>
+
+</div>
 </div>
 </br>
 <div class="related">
