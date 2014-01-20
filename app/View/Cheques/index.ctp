@@ -649,7 +649,7 @@ echo $this->Form->label('Búsqueda') ?>
 	echo $this->Paginator->counter(array(
 	'format' => __('Página {:page} de {:pages}, mostrando {:current} registros de {:count} en total, iniciando en el registro {:start}, finalizando en {:end}')
 	));
-	?>	</p>
+	?>	
 	<div class="paging">
 	<?php
 		echo $this->Paginator->prev('< ' . __('Atras'), array(), null, array('class' => 'prev disabled'));
