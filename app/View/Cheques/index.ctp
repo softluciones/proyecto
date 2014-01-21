@@ -203,8 +203,10 @@ echo $this->Form->label('Búsqueda') ?>
 <h2 style="clear: both">
     <?php #debug($sumas); 
 
+
             echo __('Cheques por cobrar y devueltos '); echo $this->Html->image("actualizar.fw.png", array("alt" => "Agregar Cheque",'width' => '30', 'heigth' => '30','title'=>'Intereses a aumentar','url' => array('action' => 'index'))); ?></h2>
        
+
 	<table cellpadding="0" cellspacing="0" align="center" style="width:100%">
             <thead>
 	<tr>
@@ -432,6 +434,7 @@ echo $this->Form->label('Búsqueda') ?>
                                     echo h('Devuelto');
                                     ?>&nbsp;</td>
 
+
 		<td><?php echo h($cheque['ChequeEstadocheque']['0']['Estadocheque']['nomenclatura']); ?>&nbsp;</td>
                 <td><?php echo h($cheque['Cheque1']['numerodecheque']); ?>&nbsp;</td>
 		<td>
@@ -469,8 +472,8 @@ echo $this->Form->label('Búsqueda') ?>
 			<?php echo $this->Html->link($cheque['Cliente']['nombre'], array('controller' => 'clientes', 'action' => 'view', $cheque['Cliente']['id'])); ?>
 		</td>
 
-                
-                echo h($cheque['ChequeEstadocheque']['0']['Estadocheque']['nomenclatura']); ?>&nbsp;</td>
+
+                <?php  echo h($cheque['ChequeEstadocheque']['0']['Estadocheque']['nomenclatura']); ?></td>
                 <td><?php echo h($cheque['Cheque1']['numerodecheque']); ?>&nbsp;</td>
 		<td>
 			<?php echo $this->Html->link($cheque['User']['username'], array('controller' => 'users', 'action' => 'view', $cheque['User']['id'])); ?>
@@ -556,6 +559,7 @@ echo $this->Form->label('Búsqueda') ?>
                                     echo h('Devuelto');
                                     ?>&nbsp;</td>
 
+
 		<td><?php echo h($cheque['ChequeEstadocheque']['0']['Estadocheque']['nomenclatura']); ?>&nbsp;</td>
                 <td><?php echo h($cheque['Cheque1']['numerodecheque']); ?>&nbsp;</td>
 		<td>
@@ -628,13 +632,14 @@ echo $this->Form->label('Búsqueda') ?>
                 #echo h($cheque['Chequeinterese'][0]['montoentregado']); ?>&nbsp;
                      </div></td>
 
+<?php 
                 
                 $cuantos = count($cheque['ChequeEstadocheque']);
                 if($cuantos>0){
                     echo h($cheque['ChequeEstadocheque'][$cuantos-1]['Estadocheque']['nomenclatura']); 
                 
                 }
-                ?>&nbsp;</td>
+                ?></td>
                 
                 <td><?php echo h($cheque['Cheque1']['numerodecheque']); ?>&nbsp;</td>
 		<td>
@@ -662,7 +667,9 @@ echo $this->Form->label('Búsqueda') ?>
                    ?>
                 </td> 
             
+
         <?php }}else{
+
             if($cheque['Cheque']['cobrado']==0){ ?>
                 <tr style="background: #f00; color: white;">
 		
@@ -730,7 +737,7 @@ echo $this->Form->label('Búsqueda') ?>
 		<td class="actions">
                     <?php 
 
-                                                #echo $this->Html->image("devuelto.fw.png", array("alt" => "Devuelto",'width' => '18', 'heigth' => '18','title'=>'Devuelto','url' => array('action' => 'editadevuelto/'. $cheque['Cheque']['id'],0)));
+                                               # echo $this->Html->image("devuelto.fw.png", array("alt" => "Devuelto",'width' => '18', 'heigth' => '18','title'=>'Devuelto','url' => array('action' => 'editadevuelto/'. $cheque['Cheque']['id'],0)));
 
 			?>
 			<?php #echo $this->Html->link(__('Devuelto'), array('action' => 'editadevuelto/'. $cheque['Cheque']['id'],0)); ?>
