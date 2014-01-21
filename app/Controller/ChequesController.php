@@ -28,8 +28,7 @@ class ChequesController extends AppController {
         public function reporteinteres($id=null){
             $hoy=date("Y-m-d");
             $id=$this->params['pass'][0];
-            $deudainteres=$this->params['pass'][1];
-            $montopagado=$this->params['pass'][2];
+           
             $sqltotal="select count(*) as total from solointereses where cheque_id=".$id;
             $total=  $this->Cheque->query($sqltotal);
             $numerocheque="select numerodecheque from cheques where id=".$id;
@@ -37,31 +36,15 @@ class ChequesController extends AppController {
             $sql="Select monto, montointereses, fecha from solointereses where cheque_id=".$id." order by cheque_id desc, id desc";
             $consulta=  $this->Cheque->query($sql);
             $dif=  $this->diferencia($hoy,$consulta[0]['solointereses']['fecha']);
-            debug($dif);
-            debug($consulta);
+            #debug($dif);
+            #debug($consulta);
             $tot=$total[0][0]['total'];
             $acum=0;
             $fecha=$consulta[0]['solointereses']['fecha'];
-            echo "Vista de los intereses hasta el dia de hoy del cheque # ".$num[0]['cheques']['numerodecheque']."<br>";
-            for($i=0;$i<$dif;$i++){
-                $acum=$acum+$consulta[0]['solointereses']['montointereses'];
-                echo $fecha." ".$consulta[0]['solointereses']['montointereses']." Bs<br>";
-                $fecha++;
-            }
-            echo "Total de intereses acumulados hasta hoy: ".$acum." Bs<br>";
-            echo "total de monto+montointereses: ".(intval($consulta[0]['solointereses']['monto'])+intval($acum))." Bs<br>";
-            echo "Monto en deuda es: ".$consulta[0]['solointereses']['monto']." Bs<br>";
-            echo "Monto pagado a deuda ".$montopagado." Bs<br>";
-            echo "total menos lo que pago: (".$consulta[0]['solointereses']['monto']."-".$montopagado.")+".$acum."=".((intval($consulta[0]['solointereses']['monto'])-intval($montopagado))+intval($acum));
+            #echo "Vista de los intereses hasta el dia de hoy del cheque # ".$num[0]['cheques']['numerodecheque']."<br>";
             
-            $montomasintereses=(intval($consulta[0]['solointereses']['monto'])+intval($acum));
-            $totalrestante=((intval($consulta[0]['solointereses']['monto'])-intval($montopagado))+intval($acum));
-            
-            
-            
-            
-            exit(0);
-            $this->set(compact('consulta'));
+            #exit(0);
+            $this->set(compact('dif','consulta','fecha','acum','num','montointeresestoo'));
             
         }
         public function index() {
