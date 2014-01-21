@@ -117,7 +117,7 @@ echo $this->Form->label('Búsqueda') ?>
 </div> 
 
 </div> 
-       <?php
+       <?php//
        } ?>
     </div>
 </form>
