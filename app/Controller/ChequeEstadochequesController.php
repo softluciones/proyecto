@@ -65,7 +65,7 @@ class ChequeEstadochequesController extends AppController {
 			}
 		}
                 $conditions=array('Cheque.id'=>$id);
-		$cheques = $this->ChequeEstadocheque->Cheque->find('list',array('fields'=>array('id','numerodecheque'),
+		$cheques = $this->ChequeEstadocheque->Cheque->find('list',array('fields'=>array('id','chequess'),
                                                                                     'conditions'=>$conditions));
 		$estadocheques = $this->ChequeEstadocheque->Estadocheque->find('list',array('fields'=>array('id','nombresss')));
 		$users = $this->ChequeEstadocheque->User->find('list');
@@ -87,7 +87,7 @@ class ChequeEstadochequesController extends AppController {
 			}
 		}
                 $conditions=array('Cheque.id'=>$id);
-		$cheques = $this->ChequeEstadocheque->Cheque->find('list',array('fields'=>array('id','numerodecheque'),
+		$cheques = $this->ChequeEstadocheque->Cheque->find('list',array('fields'=>array('id','chequess'),
                                                                                     'conditions'=>$conditions));
 		$estadocheques = $this->ChequeEstadocheque->Estadocheque->find('list',array('fields'=>array('id','nombresss')));
 		$users = $this->ChequeEstadocheque->User->find('list');

@@ -1,5 +1,3 @@
-<?php date_default_timezone_set("America/Caracas")?>
-
 <script>
     $(document).ready(function(){
         
@@ -12,32 +10,15 @@ $("#datepicker1").datepicker();
 
   });
   </script>
- <style>
-      th{
-          background: #ffffff;
-      }
-      tbody tr:hover th{
-          background: #ffffff;
-      }
-      li.menu{
-          text-align: center;
-      }
-  </style>
-<div class="cheques form">
-<?php echo $this->Form->create('Cheque',array('type'=>'file')); 
 
-?>
-	
+<div class="cheques form">
+<?php echo $this->Form->create('Cheque',array('type'=>'file')); ?>
+	<fieldset>
+		<legend><?php echo __('Agregar Cheque'); ?></legend>
+                <br>
                 <table>
-                    <thead>
-       
-                 <th colspan="3" style="background:#cccccc; height: 50px; font-size: 20px;">
-         <div align="center">Agregar Cheque</div>
-                 </th>
-            
-         </thead>
                     <tr>
-                        <th colspan="3"><?php echo $this->Form->input('cliente_id');?></th>
+                        <th colspan="3"><?php echo $this->Form->input('cliente_id'); ?></th>
                     </tr>
                     <tr>
                         <th><?php echo $this->Form->input('banco_id'); ?></th>
@@ -57,12 +38,10 @@ $("#datepicker1").datepicker();
                         <th><?php echo $this->Form->input('cobrado',array('options'=>array(
                                ''=>'Seleccione','1'=>'Por Cobrar','2'=>'Cobrado','0'=>'Devuelto'
                 ))); ?></th>
-                     
                     </tr>
                     <tr>
-                       
-                   <th colspan="2"><?php echo $this->Form->input('user_id'); ?></th>
-                        <th><?php echo $this->Form->end(__('Guardar')); ?></th>
+                        <th colspan="2"><?php echo $this->Form->input('user_id'); ?></th>
+                        <th><?php echo $this->Form->end(__('Submit')); ?></th>
                         
                     </tr>
                 </table>
@@ -79,18 +58,17 @@ $("#datepicker1").datepicker();
 	</fieldset>
 
 </div>
-  <br></br>
 <div class="actions">
-	
+	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
-		<li class="menu"><?php echo $this->Html->link(__('Listar Cheques'), array('action' => 'index')); ?></li>
-		<li class="menu"><?php echo $this->Html->link(__('Listar Bancos'), array('controller' => 'bancos', 'action' => 'index')); ?> </li>
-		<li class="menu"><?php echo $this->Html->link(__('Nuevo Banco'), array('controller' => 'bancos', 'action' => 'add')); ?> </li>
-		<li class="menu"><?php echo $this->Html->link(__('Lista de Clientes'), array('controller' => 'clientes', 'action' => 'index')); ?> </li>
-		<li class="menu"><?php echo $this->Html->link(__('Nuevo Cliente'), array('controller' => 'clientes', 'action' => 'add')); ?> </li>
-		<li class="menu"><?php echo $this->Html->link(__('Listar Intereses'), array('controller' => 'interese', 'action' => 'index')); ?> </li>
-		<li class="menu"><?php echo $this->Html->link(__('Nuevo Interes'), array('controller' => 'interese', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Listar Cheques'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('Listar Bancos'), array('controller' => 'bancos', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nuevo Banco'), array('controller' => 'bancos', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Lista de Clientes'), array('controller' => 'clientes', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nuevo Cliente'), array('controller' => 'clientes', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('Listar Intereses'), array('controller' => 'interese', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('Nuevo Interes'), array('controller' => 'interese', 'action' => 'add')); ?> </li>
 		
 	</ul>
 </div>

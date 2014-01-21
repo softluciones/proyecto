@@ -190,15 +190,15 @@ class ChequesController extends AppController {
  * @return void
  */
 	public function view($id = null) {
-            $this->Cheque->recursive = 3;
+            $this->recursive = 2;
 		if (!$this->Cheque->exists($id)) {
 			throw new NotFoundException(__('Invalid cheque'));
 		}
 		$options = array('conditions' => array('Cheque.' . $this->Cheque->primaryKey => $id));
                 $cheque=$this->Cheque->find('first', $options);
                 $opciones2= array('conditions' => array('Cheque.cheque_id' => $id));
-                $relacionados = $this->Cheque->find('all',$opciones2);
-                debug($relacionados);
+                $relacionados = $this->Cheque->find('first',$opciones2);
+                #debug($relacionados);
 		$this->set(compact('cheque','relacionados'));
 	}
 
@@ -262,27 +262,27 @@ class ChequesController extends AppController {
                         $fecha2 = new DateTime($this->data['Cheque']['fechacobro']);
                         $this->request->data['Cheque']['fecharecibido']=$fecha1->format('Y-m-d');
                         $this->request->data['Cheque']['fechacobro']=$fecha2->format('Y-m-d');
-                        $id1= $this->request->data['Cheque']['cheques_id'];
+                        
                      	if ($this->Cheque->save($this->request->data)) {                                
                                 $this->chequeinteresesinsert();
                                 $cheque_ids=  $this->Cheque->getLastInsertID();
                                 $this->Session->setFlash(__('El cheque ha sido guardado.'));
-				return $this->redirect(array('controller'=>'chequeestadocheques','action' => 'add2/'.$cheque_ids,$id1));
+				return $this->redirect(array('controller'=>'chequeestadocheques','action' => 'add2/'.$cheque_ids,$id));
 			} else {
 				$this->Session->setFlash(__('El cheque no ha sido guardado'));
 			}
 		}
-		$bancos = $this->Cheque->Banco->find('list',array('fields'=>'nombre'));
+		$bancos = $this->Cheque->Banco->find('list');
                 $muestra=0;		
                     $clientes = $this->Cheque->Cliente->find('list',array('fields'=>array('id','nombres')));      
                 $id_cheque = $this->Cheque->find('list',array('fields'=>array('id','numerodecheque'),'conditions'=>array(
                     'Cheque.id'=>$id)));
 		$interese = $this->Cheque->Interese->find('list',array('fields'=>array('id','rango')));
 		$users = $this->Cheque->User->find('list');
-                $cheque = $this->Cheque->find('all',array('conditions'=>array('Cheque.id'=>$id)));
+               
                 $x=$this->Cheque->query("select id, username from users where id=".$this->Auth->user('id')."");
                 $users=array($x[0]['users']['id']=>$x[0]['users']['username']);
-		$this->set(compact('bancos', 'clientes', 'interese', 'users','id_cheque','id','cheque'));
+		$this->set(compact('bancos', 'clientes', 'interese', 'users','id_cheque','id'));
 	}
         public function add($id=null) {
 		if ($this->request->is('post')) {
