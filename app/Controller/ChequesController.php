@@ -32,17 +32,34 @@ class ChequesController extends AppController {
             $montopagado=$this->params['pass'][2];
             $sqltotal="select count(*) as total from solointereses where cheque_id=".$id;
             $total=  $this->Cheque->query($sqltotal);
+            $numerocheque="select numerodecheque from cheques where id=".$id;
+            $num=  $this->Cheque->query($numerocheque);
             $sql="Select monto, montointereses, fecha from solointereses where cheque_id=".$id." order by cheque_id desc, id desc";
             $consulta=  $this->Cheque->query($sql);
-            $dif=  $this->diferencia($hoy,$consulta['solointereses']['fecha']);
+            $dif=  $this->diferencia($hoy,$consulta[0]['solointereses']['fecha']);
             debug($dif);
             debug($consulta);
             $tot=$total[0][0]['total'];
             $acum=0;
+            $fecha=$consulta[0]['solointereses']['fecha'];
+            echo "Vista de los intereses hasta el dia de hoy del cheque # ".$num[0]['cheques']['numerodecheque']."<br>";
             for($i=0;$i<$dif;$i++){
-                $acum=$acum+$consulta[$i]['solointereses']['montointereses'];
+                $acum=$acum+$consulta[0]['solointereses']['montointereses'];
+                echo $fecha." ".$consulta[0]['solointereses']['montointereses']." Bs<br>";
+                $fecha++;
             }
-            echo $acum;
+            echo "Total de intereses acumulados hasta hoy: ".$acum." Bs<br>";
+            echo "total de monto+montointereses: ".(intval($consulta[0]['solointereses']['monto'])+intval($acum))." Bs<br>";
+            echo "Monto en deuda es: ".$consulta[0]['solointereses']['monto']." Bs<br>";
+            echo "Monto pagado a deuda ".$montopagado." Bs<br>";
+            echo "total menos lo que pago: (".$consulta[0]['solointereses']['monto']."-".$montopagado.")+".$acum."=".((intval($consulta[0]['solointereses']['monto'])-intval($montopagado))+intval($acum));
+            
+            $montomasintereses=(intval($consulta[0]['solointereses']['monto'])+intval($acum));
+            $totalrestante=((intval($consulta[0]['solointereses']['monto'])-intval($montopagado))+intval($acum));
+            
+            
+            
+            
             exit(0);
             $this->set(compact('consulta'));
             
