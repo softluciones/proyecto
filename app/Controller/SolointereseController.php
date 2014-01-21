@@ -13,8 +13,13 @@ class SolointereseController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
-
+        var $paginate = array(
+                'limit' => 10,
+                'order' => array(
+                'Solointerese.cheque_id' => 'DESC',
+                'Solointerese.id' => 'DESC',
+                )
+              );
 /**
  * index method
  *
@@ -22,7 +27,7 @@ class SolointereseController extends AppController {
  */
 	public function index() {
 		$this->Solointerese->recursive = 0;
-		$this->set('solointerese', $this->Paginator->paginate());
+		$this->set('solointerese', $this->paginate());
 	}
 
 /**

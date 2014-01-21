@@ -25,7 +25,29 @@ class ChequesController extends AppController {
  *
  * @return void
  */
-	public function index() {
+        public function reporteinteres($id=null){
+            $hoy=date("Y-m-d");
+            $id=$this->params['pass'][0];
+           
+            $sqltotal="select count(*) as total from solointereses where cheque_id=".$id;
+            $total=  $this->Cheque->query($sqltotal);
+            $numerocheque="select numerodecheque from cheques where id=".$id;
+            $num=  $this->Cheque->query($numerocheque);
+            $sql="Select monto, montointereses, fecha from solointereses where cheque_id=".$id." order by cheque_id desc, id desc";
+            $consulta=  $this->Cheque->query($sql);
+            $dif=  $this->diferencia($hoy,$consulta[0]['solointereses']['fecha']);
+            #debug($dif);
+            #debug($consulta);
+            $tot=$total[0][0]['total'];
+            $acum=0;
+            $fecha=$consulta[0]['solointereses']['fecha'];
+            #echo "Vista de los intereses hasta el dia de hoy del cheque # ".$num[0]['cheques']['numerodecheque']."<br>";
+            
+            #exit(0);
+            $this->set(compact('dif','consulta','fecha','acum','num','montointeresestoo'));
+            
+        }
+        public function index() {
 		$this->Cheque->recursive = 2;
                 $sumas=  $this->Cheque->query("SELECT cobrado, 
                                             SUM( monto ) as sumato 
@@ -33,10 +55,10 @@ class ChequesController extends AppController {
                                             WHERE cobrado =1
                                             OR cobrado =0
                                             GROUP BY cobrado
-                                            ORDER BY COBRADO");
-
-              //debug($sumas);
-               //jose y bet son novios ahora yo jose
+                                           ORDER BY COBRADO"); 
+                                            
+                //debug($sumas);
+               //jose y bet son novios ahora yo jose se
                 if($this->data){  
                     
                     if($this->data['Cheque']['selector']=="1"){
@@ -350,7 +372,8 @@ class ChequesController extends AppController {
                  
                  $dias=$this->request->data['Cheque']['dias']= 1;
                  $monto=$this->request->data['Cheque']['monto'] = intval($x[0]['chequeinterese']['montocheque'])+intval($x[0]['chequeinterese']['montodescuentointeres']);
-                
+                $this->request->data['Solointerese']['monto']=$monto;
+                 $this->request->data['Cheque']['modified']=date('Y-m-d H:i:s');
                  $que=$this->Cheque->save($this->request->data);
                   if(!$que){
                       $this->Cheque->query("UPDATE cheques SET cobrado=".$cobrado.", dias=".$dias.", 
@@ -418,10 +441,12 @@ class ChequesController extends AppController {
                 
                 $this->Cheque->Chequeinterese->save($this->request->data);
                 $insert="INSERT INTO 
-                     solointereses (montointereses,
+                     solointereses (monto,
+                                    montointereses,
                                     cheque_id,
                                     fecha)
-                     VALUES(".$this->request->data['Solointerese']['montointereses'].",
+                     VALUES(".$this->request->data['Solointerese']['monto'].",
+                            ".$this->request->data['Solointerese']['montointereses'].",
                             ".$this->request->data['Solointerese']['cheque_id'].",
                             NOW())";
             $this->Cheque->query($insert);
