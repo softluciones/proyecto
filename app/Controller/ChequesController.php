@@ -25,7 +25,29 @@ class ChequesController extends AppController {
  *
  * @return void
  */
-	public function index() {
+        public function reporteinteres($id=null){
+            $hoy=date("Y-m-d");
+            $id=$this->params['pass'][0];
+            $deudainteres=$this->params['pass'][1];
+            $montopagado=$this->params['pass'][2];
+            $sqltotal="select count(*) as total from solointereses where cheque_id=".$id;
+            $total=  $this->Cheque->query($sqltotal);
+            $sql="Select monto, montointereses, fecha from solointereses where cheque_id=".$id." order by cheque_id desc, id desc";
+            $consulta=  $this->Cheque->query($sql);
+            $dif=  $this->diferencia($hoy,$consulta['solointereses']['fecha']);
+            debug($dif);
+            debug($consulta);
+            $tot=$total[0][0]['total'];
+            $acum=0;
+            for($i=0;$i<$dif;$i++){
+                $acum=$acum+$consulta[$i]['solointereses']['montointereses'];
+            }
+            echo $acum;
+            exit(0);
+            $this->set(compact('consulta'));
+            
+        }
+        public function index() {
 		$this->Cheque->recursive = 2;
                 $sumas=  $this->Cheque->query("SELECT cobrado, 
                                             SUM( monto ) as sumato 
@@ -33,9 +55,9 @@ class ChequesController extends AppController {
                                             WHERE cobrado =1
                                             OR cobrado =0
                                             GROUP BY cobrado
-                                            ORDER BY COBRADO");
-
-              //debug($sumas);
+                                           ORDER BY COBRADO"); 
+                                            
+                //debug($sumas);
                //jose y bet son novios ahora yo jose se
                 if($this->data){  
                     
